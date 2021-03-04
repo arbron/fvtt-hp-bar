@@ -1,7 +1,7 @@
 {
   "name": "arbron-hp-bar",
-  "title": "Arbron's HP Bar",
-  "description": "Modifies the HP bar in 5e to represent temp HP and changes to max HP.",
+  "title": "Arbron's Improved HP Bar",
+  "description": "Modifies the HP bar in 5e to represent temp & max HP.",
   "author": "Jeff 'Arbron' Hitchcock",
   "authors": [
     {
@@ -20,12 +20,18 @@
   "changelog": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/changelog.md",
   "bugs": "https://github.com/arbron/fvtt-hp-bar/issues",
   "allowBugReporter": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
   "manifestPlusVersion": "1.1.0",
-  "socket": true,
+  "system": "dnd5e",
   "esmodules": [
     "./scripts/main.js"
+  ],
+  "conflicts": [
+    {
+      "name": "barbrawl",
+      "type": "module"
+    } 
   ]
 }
