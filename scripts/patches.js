@@ -21,7 +21,7 @@ export function patchTokenDrawBar() {
   log('Patching Token._drawBar');
 
   Monkey.replaceMethod(Token, '_drawBar', function(number, bar, data) {
-    if ((data.attribute === "attributes.hp") && (this.actor.data.type === "character")) {
+    if (data.attribute === "attributes.hp") {
       return this._drawHPBar(number, bar, data);
     }
     return Monkey.callOriginalFunction(this, '_drawBar', number, bar, data);
