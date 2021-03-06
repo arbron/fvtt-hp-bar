@@ -6,7 +6,8 @@ export function drawHPBar(number, bar, data) {
     max: Number(_hp.max),
     temp: Number(_hp.temp),
     tempmax: Number(_hp.tempmax),
-    value: Number(_hp.value)
+    value: Number(_hp.value),
+    modifiedMax: Number(_hp.max) + Number(_hp.tempmax)
   }
 
   // Size of bar is max + tempMax (if positive), or temp (if temp is larger than max)
@@ -15,9 +16,9 @@ export function drawHPBar(number, bar, data) {
   if (hp.temp > size) size = hp.temp;
 
   const tempPct = Math.clamped(hp.temp, 0, size) / size;
-  const valuePct = Math.clamped(hp.value, 0, size) / size;
+  const valuePct = Math.clamped(hp.value, 0, hp.modifiedMax) / size;
   const maxPct = Math.clamped(Math.abs(hp.tempmax), 0, size) / size;
-  const valueColorPct = Math.clamped(hp.value, 0, hp.max + hp.tempmax) / (hp.max + hp.tempmax);
+  const valueColorPct = Math.clamped(hp.value, 0, hp.modifiedMax) / (hp.modifiedMax);
 
   const tempColor = 0x559cc6;
   const valueColor = [(1-(valueColorPct/2)), valueColorPct, 0];
