@@ -7,7 +7,7 @@ export function drawHPBar(number, bar, data) {
     temp: Number(_hp.temp),
     tempmax: Number(_hp.tempmax),
     value: Number(_hp.value),
-    modifiedMax: Number(_hp.max) + Number(_hp.tempmax)
+    modifiedMax: Math.max(0, Number(_hp.max) + Number(_hp.tempmax))
   }
 
   // Size of bar is max + tempMax (if positive), or temp (if temp is larger than max)
