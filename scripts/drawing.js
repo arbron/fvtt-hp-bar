@@ -7,18 +7,22 @@ export function drawHPBar(number, bar, data) {
     temp: Number(_hp.temp),
     tempmax: Number(_hp.tempmax),
     value: Number(_hp.value),
-    modifiedMax: Math.max(0, Number(_hp.max) + Number(_hp.tempmax))
   }
 
-  // Size of bar is max + tempMax (if positive), or temp (if temp is larger than max)
   let size = hp.max;
+  const currentMax = Math.max(0, Number(_hp.max) + Number(_hp.tempmax));
+
+  // Size of bar is max + temp max if temp max is positive
   if (hp.tempmax > 0) size += hp.tempmax;
+  const positiveMax = size;
+
+  // If temp exceeds max, bar is scaled to show total temp
   if (hp.temp > size) size = hp.temp;
 
   const tempPct = Math.clamped(hp.temp, 0, size) / size;
-  const valuePct = Math.clamped(hp.value, 0, hp.modifiedMax) / size;
-  const maxPct = Math.clamped(Math.abs(hp.tempmax), 0, size) / size;
-  const valueColorPct = Math.clamped(hp.value, 0, hp.modifiedMax) / (hp.modifiedMax);
+  const valuePct = Math.clamped(hp.value, 0, currentMax) / size;
+  const maxPct = Math.clamped(positiveMax - Math.abs(hp.tempmax), 0, positiveMax) / size;
+  const valueColorPct = Math.clamped(hp.value, 0, currentMax) / currentMax;
 
   const tempColor = 0x559cc6;
   const valueColor = [(1-(valueColorPct/2)), valueColorPct, 0];
@@ -39,7 +43,7 @@ export function drawHPBar(number, bar, data) {
   if (hp.tempmax != 0) {
     bar.beginFill(maxBackgroundColor, 0.5)
        .lineStyle(0, 0x000000, 0.0)
-       .drawRoundedRect((1-maxPct)*(w-2), 1, maxPct*w, h-2, 2)
+       .drawRoundedRect((maxPct)*(w-2), 1, (1-maxPct)*w, h-2, 2)
   }
 
   // Current & Temp Bars
@@ -53,8 +57,8 @@ export function drawHPBar(number, bar, data) {
   // Negative temp max line
   if (hp.tempmax < 0) {
     bar.lineStyle(2, maxLineColor, 0.8)
-       .moveTo((1-maxPct)*(w-2), -1)
-       .lineTo((1-maxPct)*(w-2), h+1);
+       .moveTo((maxPct)*(w-2), -1)
+       .lineTo((maxPct)*(w-2), h+1);
   }
 
   // Set position
