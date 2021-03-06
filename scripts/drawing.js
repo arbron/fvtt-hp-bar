@@ -1,7 +1,13 @@
 
 
 export function drawHPBar(number, bar, data) {
-  const hp = this.actor.data.data.attributes.hp;
+  const _hp = duplicate(this.actor.data.data.attributes.hp);
+  const hp = {
+    max: Number(_hp.max),
+    temp: Number(_hp.temp),
+    tempmax: Number(_hp.tempmax),
+    value: Number(_hp.value)
+  }
 
   // Size of bar is max + tempMax (if positive), or temp (if temp is larger than max)
   let size = hp.max;
