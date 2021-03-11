@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.1.0
+ - Add support for [3.5 SRD](https://foundryvtt.com/packages/D35E)
+ - Upgrade compatible core version to 0.8.0
+
 # 1.0.3
  - Improved legibility of negative max HP adjustments
  - Fixed bug when max HP is negative

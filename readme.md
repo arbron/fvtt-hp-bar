@@ -1,6 +1,6 @@
 # Arbron's Improved HP Bar
 
-Modifies the HP bar in 5e to represent temp & max HP.
+Modifies the HP bar in in [5e](https://foundryvtt.com/packages/dnd5e) and [3.5e](https://foundryvtt.com/packages/D35E) to represent the complexities of character health.
 
 
 ### Temp HP
@@ -9,11 +9,17 @@ Displays a blue bar overlaying the current HP. If temp HP exceeds max HP, the ba
 ![Temp HP](images/temp-hp.jpg "Temp HP")
 
 
-### Max HP
+### Max HP (5e only)
 Displays positive temp max HP as a light grey addition to the bar on the right side and negative max as a dark gray bar. The color of the current HP bar is changed to accurately reflect the current max HP.
 
 ![Positive Max HP](images/max-hp-positive.jpg "Positive Max HP")
 ![Negative Max HP](images/max-hp-negative.jpg "Negative Max HP")
+
+
+### Nonlethal (3.5e only)
+Displays an outline over the HP bar that is light green if the current nonletal damage is less than current HP (aka not staggered) and red if it exceeds current HP.
+
+![Nonletal](images/nonlethal.jpg "Nonletal Damage")
 
 
 ### Compatibility Issues
