@@ -1,4 +1,6 @@
-
+export function shouldDrawHPBar(attribute) {
+  return attribute === "attributes.hp";
+}
 
 export function drawHPBar(number, bar, data) {
   const _hp = duplicate(this.actor.data.data.attributes.hp);
