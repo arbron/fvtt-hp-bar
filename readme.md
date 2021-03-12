@@ -2,8 +2,6 @@
 
 Modifies the HP bar various systems to represent the complexities of character health.
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I53RGZS)
-
 
 ### Temp HP
 Displays a blue bar overlaying the current HP. If temp HP exceeds max HP, the bar will rescale to properly represent the proportion of temp to max.
@@ -30,3 +28,6 @@ D&D [3.5e](https://foundryvtt.com/packages/D35E) & [5e](https://foundryvtt.com/p
 
 ### Compatibility Issues
 Does not work with [Bar Brawl](https://gitlab.com/woodentavern/foundryvtt-bar-brawl) due to that module implementing its own drawing method.
+
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I53RGZS)
