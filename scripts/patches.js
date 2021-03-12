@@ -6,12 +6,10 @@ import { Monkey } from './shared/Monkey.js';
 /**
  * Add custom drawing method for HP bars.
  */
-export function addTokenDrawHPBar(module) {
-  log('Adding Token._shouldDrawHPBar');
-  log('Adding Token._drawHPBar');
+export function addTokenHPBarClass(cls) {
+  log('Adding Token._hpBarClass');
 
-  Token.prototype._shouldDrawHPBar = module.shouldDrawHPBar;
-  Token.prototype._drawHPBar = module.drawHPBar;
+  Token.prototype._hpBarClass = cls;
 }
 
 
@@ -22,7 +20,10 @@ export function patchTokenDrawBar() {
   log('Patching Token._drawBar');
 
   Monkey.replaceMethod(Token, '_drawBar', function(number, bar, data) {
-    if (this._shouldDrawHPBar(data.attribute)) return this._drawHPBar(number, bar, data);
+    if (this._hpBarClass.shouldDraw(data.attribute)) {
+      const hpBar = new this._hpBarClass(this, number, bar);
+      return hpBar._draw();
+    }
 
     return Monkey.callOriginalFunction(this, '_drawBar', number, bar, data);
   });

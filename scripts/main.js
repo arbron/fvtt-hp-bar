@@ -1,4 +1,5 @@
 import { error, log } from './shared/messages.js';
+import DefaultHPBar from './systems/default.js';
 import * as patches from './patches.js';
 
 Hooks.on('setup', async function() {
@@ -7,9 +8,10 @@ Hooks.on('setup', async function() {
     log(`Loading HP bar for ${system.title}`);
     const drawingModule = await import(`./systems/${system.name}.js`);
 
-    patches.addTokenDrawHPBar(drawingModule);
-    patches.patchTokenDrawBar();
+    patches.addTokenHPBarClass(drawingModule.default);
   } catch(e) {
-    error(`Could not load HP bar for ${system.title}`);
+    log(`Falling back to generic HP bar drawing`);
+    patches.addTokenHPBarClass(DefaultHPBar);
   }
+  patches.patchTokenDrawBar();
 });
