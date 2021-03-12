@@ -1,5 +1,8 @@
 # Changelog
 
+# 1.2.0
+ - Add support for Pathfinder [1e](https://foundryvtt.com/packages/pf1) and [2e](https://foundryvtt.com/packages/pf2e)
+
 # 1.1.0
  - Add support for [3.5 SRD](https://foundryvtt.com/packages/D35E)
  - Upgrade compatible core version to 0.8.0
