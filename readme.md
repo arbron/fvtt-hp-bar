@@ -1,6 +1,6 @@
 # Arbron's Improved HP Bar
 
-Modifies the HP bar various systems to represent the complexities of character health.
+Modifies the HP bar in various systems to represent the complexities of character health.
 
 
 ### Temp HP
