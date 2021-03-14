@@ -20,18 +20,12 @@
   "changelog": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/changelog.md",
   "bugs": "https://github.com/arbron/fvtt-hp-bar/issues",
   "allowBugReporter": true,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.8.0",
   "manifestPlusVersion": "1.1.0",
   "system": ["dnd5e", "D35E", "pf1", "pf2e"],
   "esmodules": [
     "./scripts/main.js"
-  ],
-  "conflicts": [
-    {
-      "name": "barbrawl",
-      "type": "module"
-    } 
   ]
 }

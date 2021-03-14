@@ -1,5 +1,8 @@
 # Changelog
 
+# 1.2.1
+ - Remove conflict note about [Bar Brawl](https://gitlab.com/woodentavern/foundryvtt-bar-brawl) which now works great! (thanks DJ Addi#1087)
+
 # 1.2.0
  - Add support for Pathfinder [1e](https://foundryvtt.com/packages/pf1) and [2e](https://foundryvtt.com/packages/pf2e)
 
