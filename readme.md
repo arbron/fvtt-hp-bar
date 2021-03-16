@@ -2,6 +2,12 @@
 
 Modifies the HP bar in various systems to represent the complexities of character health.
 
+![Release Version](https://img.shields.io/github/v/release/arbron/fvtt-hp-bar)
+![Foundry Version](https://img.shields.io/badge/dynamic/json.svg?url=https://github.com/arbron/fvtt-hp-bar/releases/latest/download/module.json&label=foundry%20version&query=$.compatibleCoreVersion&colorB=blueviolet)
+![Downloads](https://img.shields.io/github/downloads/arbron/fvtt-hp-bar/total)
+[![Forge Install Base](https://img.shields.io/badge/dynamic/json?label=forge%20install%20base&query=package.installs&suffix=%&url=https://forge-vtt.com/api/bazaar/package/arbron-hp-bar&colorB=brightgreen)](https://forge-vtt.com/bazaar#package=arbron-hp-bar)
+![GitHub issues](https://img.shields.io/github/issues/arbron/fvtt-hp-bar?colorB=red)
+
 
 ### Temp HP
 Displays a blue bar overlaying the current HP. If temp HP exceeds max HP, the bar will rescale to properly represent the proportion of temp to max.
