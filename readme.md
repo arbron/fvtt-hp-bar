@@ -29,7 +29,7 @@ Displays an outline over the HP bar that is light green if the current nonlethal
 
 
 #### Supported Systems
-D&D [3.5e](https://foundryvtt.com/packages/D35E) & [5e](https://foundryvtt.com/packages/dnd5e), Pathfinder [1e](https://foundryvtt.com/packages/pf1) & [2e](https://foundryvtt.com/packages/pf2e)
+D&D [3.5e](https://foundryvtt.com/packages/D35E) & [5e](https://foundryvtt.com/packages/dnd5e), Pathfinder [1e](https://foundryvtt.com/packages/pf1) & [2e](https://foundryvtt.com/packages/pf2e), [Toolkit13 (13th Age Compatible)](https://foundryvtt.com/packages/archmage)
 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I53RGZS)
