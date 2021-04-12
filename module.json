@@ -24,7 +24,7 @@
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.8.0",
   "manifestPlusVersion": "1.1.0",
-  "system": ["dnd5e", "D35E", "pf1", "pf2e"],
+  "system": ["dnd5e", "D35E", "pf1", "pf2e", "archmage"],
   "esmodules": [
     "./scripts/main.js"
   ]
