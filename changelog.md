@@ -1,5 +1,8 @@
 # Changelog
 
+# 1.2.2
+ - Add support for [Toolkit13 (13th Age Compatible)](https://foundryvtt.com/packages/archmage) (thanks Cody cswendrowski#9701)
+
 # 1.2.1
  - Remove conflict note about [Bar Brawl](https://gitlab.com/woodentavern/foundryvtt-bar-brawl) which now works great! (thanks DJ Addi#1087)
 
