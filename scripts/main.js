@@ -1,8 +1,16 @@
+
 import { error, log } from './shared/messages.js';
 import DefaultHPBar from './systems/default.js';
 import * as patches from './patches.js';
+import { registerSettings } from './settings.js';
 
-Hooks.on('setup', async function() {
+
+Hooks.once('init', function() {
+  registerSettings();
+});
+
+
+Hooks.once('setup', async function() {
   const system = game.system.data;
   try {
     log(`Loading HP bar for ${system.title}`);
@@ -15,3 +23,5 @@ Hooks.on('setup', async function() {
   }
   patches.patchTokenDrawBar();
 });
+
+

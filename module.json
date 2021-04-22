@@ -27,5 +27,12 @@
   "system": ["archmage", "demonlord", "D35E", "dnd5e", "pf1", "pf2e"],
   "esmodules": [
     "./scripts/main.js"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
   ]
 }

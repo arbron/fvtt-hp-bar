@@ -1,0 +1,13 @@
+{
+  "HPBAR.ThemeConfigTitle": "HP Bar Theme",
+  
+  "SETTINGS.HPBarCustomizedTheme": "Customized Theme",
+  "SETTINGS.HPBarCustomizedThemeHint": "Changes applied to the theme that haven't been saved to a theme preset.",
+  "SETTINGS.HPBarSelectedTheme": "Selected Theme",
+  "SETTINGS.HPBarSelectedThemeHint": "Currently selected theme.",
+  "SETTINGS.HPBarThemeConfig": "Theme",
+  "SETTINGS.HPBarThemeConfigLabel": "Configure Theme",
+  "SETTINGS.HPBarThemeConfigHint": "Change the styling for the HP bar.",
+  "SETTINGS.HPBarThemes": "Themes",
+  "SETTINGS.HPBarThemesHint": "Customzied themes available across all worlds."
+}
