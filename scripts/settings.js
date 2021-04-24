@@ -38,21 +38,61 @@ export function registerSettings() {
     hint: "SETTINGS.HPBarCustomizedThemeHint",
     scope: "client",
     config: false,
-    default: {},
+    default: defaultTheme,
     type: Object
   });
 }
 
 
+export const defaultTheme = {
+  tempColor: 0x559cc6,
+  maxPositiveColor: 0xf4f4f4,
+  maxNegativeColor: 0x999999
+};
+
+
 class ThemeConfig extends FormApplication {
-  /** @override */
+  /** @inheritdoc */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       title: game.i18n.localize("HPBAR.ThemeConfigTitle"),
       id: "hpbar-theme-config",
       template: `${constants.templateRoot}/theme-config.html`,
-      width: 500,
-      height: 500
+      width: 500
     });
+  }
+
+  /** @inheritdoc */
+  getData(options) {
+    let theme = game.settings.get(constants.moduleName, "customizedTheme") ?? defaultTheme;
+    for ( const [key, value] of Object.entries(theme) ) {
+      theme[key] = `#${value.toString(16)}`;
+    }
+    return theme;
+  }
+
+  /** @inheritdoc */
+  activateListeners(html) {
+    super.activateListeners(html);
+    html.on("click", "button[name=reset]", this._onReset.bind(this));
+  }
+
+  /**
+   * Reset theme to default.
+   *
+   * @private
+   */
+  _onReset() {
+    game.settings.set(constants.moduleName, "customizedTheme", defaultTheme);
+    this.render();
+  }
+
+  /** @inheritdoc */
+  async _updateObject(event, formData) {
+    let theme = {};
+    for ( const [key, value] of Object.entries(formData) ) {
+      theme[key] = parseInt(value.slice(1), 16);
+    }
+    game.settings.set(constants.moduleName, "customizedTheme", theme);
   }
 }

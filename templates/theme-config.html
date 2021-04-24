@@ -1,3 +1,37 @@
-<div>
-  Theme Config
-</div>
+<form>
+  <section class="content">
+
+    <div class="form-group">
+      <label>{{ localize "HPBAR.TempColor" }}</label>
+      <div class="form-fields">
+        <input type="text" name="tempColor" value="{{ tempColor }}" />
+        <input type="color" value="{{ tempColor }}" data-edit="tempColor" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>{{ localize "HPBAR.MaxPositiveColor" }}</label>
+      <div class="form-fields">
+        <input type="text" name="maxPositiveColor" value="{{ maxPositiveColor }}" />
+        <input type="color" value="{{ maxPositiveColor }}" data-edit="maxPositiveColor" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>{{ localize "HPBAR.MaxNegativeColor" }}</label>
+      <div class="form-fields">
+        <input type="text" name="maxNegativeColor" value="{{ maxNegativeColor }}" />
+        <input type="color" value="{{ maxNegativeColor }}" data-edit="maxNegativeColor" />
+      </div>
+    </div>
+
+  </section>
+  <footer class="sheet-footer flexrow">
+      <button type="submit" name="submit">
+          <i class="far fa-save"></i> {{ localize "HPBAR.Save" }}
+      </button>
+      <button type="button" name="reset">
+          <i class="fas fa-undo"></i> {{ localize "HPBAR.Reset" }}
+      </button>
+  </footer>
+</form>
