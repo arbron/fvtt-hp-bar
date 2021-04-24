@@ -1,16 +1,22 @@
 import constants from './shared/constants.js';
-import { defaultTheme } from "./settings.js";
+import { defaultTheme } from "./theme.js";
 
 
 export class Color {
   static get black() { return 0x000000; }
-  static get temp()  {
-    const theme = game.settings.get(constants.moduleName, "customizedTheme");
-    return theme?.tempColor ?? defaultTheme.tempColor;
-  }
+  static get temp() { return Color._themedColor("tempColor"); }
+  static get nonlethal() { return Color._themedColor("nonlethalColor"); }
+  static get staggered() { return Color._themedColor("staggeredColor"); }
+  static get maxPositive() { return Color._themedColor("maxPositiveColor"); }
+  static get maxNegative() { return Color._themedColor("maxNegativeColor"); }
 
   static forValue(pct) {
     return PIXI.utils.rgb2hex([(1-(pct/2)), pct, 0]);
+  }
+
+  static _themedColor(key) {
+    const theme = game.settings.get(constants.moduleName, "customizedTheme");
+    return theme ? theme[key] ?? defaultTheme[key] : defaultTheme[key];
   }
 }
 
@@ -45,7 +51,7 @@ export class Draw {
 
   fill(pct, color) {
     this.bar.beginFill(color, 0.5)
-            .lineStyle(0, 0x000000, 0.0)
+            .lineStyle(0, Color.black, 0.0)
             .drawRoundedRect((pct)*(this.w-2), 1, (1-pct)*this.w, this.h-2, 2)
     return this;
   }

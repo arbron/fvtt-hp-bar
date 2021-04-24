@@ -39,7 +39,8 @@ export function registerSettings() {
     scope: "client",
     config: false,
     default: defaultTheme,
-    type: Object
+    type: Object,
+    onChange: value => { canvas?.draw(); }
   });
 }
 
@@ -66,11 +67,12 @@ class ThemeConfig extends FormApplication {
 
   /** @inheritdoc */
   getData(options) {
-    let theme = mergeObject(defaultTheme, game.settings.get(constants.moduleName, "customizedTheme"));
-    for ( const [key, value] of Object.entries(theme) ) {
+    const customizedTheme = game.settings.get(constants.moduleName, "customizedTheme");
+    return Object.keys(defaultTheme).reduce((theme, key) => {
+      const value = customizedTheme[key] ?? defaultTheme[key];
       theme[key] = `#${value.toString(16)}`;
-    }
-    return theme;
+      return theme;
+    }, {});
   }
 
   /** @inheritdoc */
@@ -96,6 +98,5 @@ class ThemeConfig extends FormApplication {
       theme[key] = parseInt(value.slice(1), 16);
     }
     await game.settings.set(constants.moduleName, "customizedTheme", theme);
-    await game.canvas.draw();
   }
 }

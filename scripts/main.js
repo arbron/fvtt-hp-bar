@@ -1,8 +1,7 @@
-
 import { error, log } from './shared/messages.js';
 import DefaultHPBar from './systems/default.js';
 import * as patches from './patches.js';
-import { registerSettings } from './settings.js';
+import { registerSettings } from './theme.js';
 
 
 Hooks.once('init', function() {
