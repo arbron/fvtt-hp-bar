@@ -7,9 +7,10 @@ import { Monkey } from './shared/Monkey.js';
  * Add custom drawing method for HP bars.
  */
 export function addTokenHPBarClass(cls) {
-  log('Adding Token._hpBarClass');
+  const TokenClass = _tokenClass();
+  log(`Adding ${TokenClass.name}._hpBarClass`);
 
-  Token.prototype._hpBarClass = cls;
+  _tokenClass().prototype._hpBarClass = cls;
 }
 
 
@@ -17,9 +18,10 @@ export function addTokenHPBarClass(cls) {
  * Modify Token._drawBar to call custom drawing method if 
  */
 export function patchTokenDrawBar() {
-  log('Patching Token._drawBar');
+  const TokenClass = _tokenClass();
+  log(`Patching ${TokenClass.name}._drawBar`);
 
-  Monkey.replaceMethod(Token, '_drawBar', function(number, bar, data) {
+  Monkey.replaceMethod(TokenClass, '_drawBar', function(number, bar, data) {
     if (this._hpBarClass.shouldDraw(data.attribute)) {
       const hpBar = new this._hpBarClass(this, number, bar);
       return hpBar._draw();
@@ -27,4 +29,13 @@ export function patchTokenDrawBar() {
 
     return Monkey.callOriginalFunction(this, '_drawBar', number, bar, data);
   });
+}
+
+
+/**
+ * Retrieve the token class for this system.
+ * @private
+ */
+function _tokenClass() {
+  return CONFIG["Token"]?.objectClass ?? Token;
 }

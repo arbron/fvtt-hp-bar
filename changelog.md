@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.2.3
+ - Upgrade compatible core version to 0.8.1
+ - Fix compatibility for systems that extend the base Token class
+
 # 1.2.2
  - Add support for [Toolkit13 (13th Age Compatible)](https://foundryvtt.com/packages/archmage) (thanks Cody cswendrowski#9701)
 
@@ -14,9 +18,9 @@
  - Upgrade compatible core version to 0.8.0
 
 # 1.0.3
- - Improved legibility of negative max HP adjustments
- - Fixed bug when max HP is negative
- - Fixed bug causing max HP bar to be drawn in the wrong position when temp HP exceeds max
+ - Improve legibility of negative max HP adjustments
+ - Fix bug when max HP is negative
+ - Fix bug causing max HP bar to be drawn in the wrong position when temp HP exceeds max
 
 # 1.0.2
  - Fix compatibility issue with [Sky's Alternate D&D 5e Character Sheet](https://github.com/Sky-Captain-13/foundry/tree/master/alt5e) (thanks Jace Bobius#8094)
