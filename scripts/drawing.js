@@ -1,6 +1,13 @@
+import constants from './shared/constants.js';
+import { defaultTheme } from "./settings.js";
+
+
 export class Color {
   static get black() { return 0x000000; }
-  static get temp()  { return 0x559cc6; }
+  static get temp()  {
+    const theme = game.settings.get(constants.moduleName, "customizedTheme");
+    return theme?.tempColor ?? defaultTheme.tempColor;
+  }
 
   static forValue(pct) {
     return PIXI.utils.rgb2hex([(1-(pct/2)), pct, 0]);

@@ -46,6 +46,8 @@ export function registerSettings() {
 
 export const defaultTheme = {
   tempColor: 0x559cc6,
+  nonlethalColor: 0xd4f4d4,
+  staggeredColor: 0xf43333,
   maxPositiveColor: 0xf4f4f4,
   maxNegativeColor: 0x999999
 };
@@ -64,7 +66,7 @@ class ThemeConfig extends FormApplication {
 
   /** @inheritdoc */
   getData(options) {
-    let theme = game.settings.get(constants.moduleName, "customizedTheme") ?? defaultTheme;
+    let theme = mergeObject(defaultTheme, game.settings.get(constants.moduleName, "customizedTheme"));
     for ( const [key, value] of Object.entries(theme) ) {
       theme[key] = `#${value.toString(16)}`;
     }
@@ -93,6 +95,7 @@ class ThemeConfig extends FormApplication {
     for ( const [key, value] of Object.entries(formData) ) {
       theme[key] = parseInt(value.slice(1), 16);
     }
-    game.settings.set(constants.moduleName, "customizedTheme", theme);
+    await game.settings.set(constants.moduleName, "customizedTheme", theme);
+    await game.canvas.draw();
   }
 }
