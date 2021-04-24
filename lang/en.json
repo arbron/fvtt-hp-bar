@@ -1,8 +1,10 @@
 {
   "HPBAR.MaxNegativeColor": "Negative Max HP Color",
   "HPBAR.MaxPositiveColor": "Positive Max HP Color",
+  "HPBAR.NonlethalColor": "Nonlethal Color",
   "HPBAR.Reset": "Reset Defaults",
   "HPBAR.Save": "Save Changes",
+  "HPBAR.StaggeredColor": "Staggered Color",
   "HPBAR.TempColor": "Temp HP Color",
   "HPBAR.ThemeConfigTitle": "HP Bar Theme",
   

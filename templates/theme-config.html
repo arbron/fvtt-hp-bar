@@ -1,6 +1,7 @@
 <form>
   <section class="content">
 
+    {{!-- Temp HP --}}
     <div class="form-group">
       <label>{{ localize "HPBAR.TempColor" }}</label>
       <div class="form-fields">
@@ -9,6 +10,24 @@
       </div>
     </div>
 
+    {{!-- Nonlethal --}}
+    <div class="form-group">
+      <label>{{ localize "HPBAR.NonlethalColor" }}</label>
+      <div class="form-fields">
+        <input type="text" name="nonlethalColor" value="{{ nonlethalColor }}" />
+        <input type="color" value="{{ nonlethalColor }}" data-edit="nonlethalColor" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>{{ localize "HPBAR.StaggeredColor" }}</label>
+      <div class="form-fields">
+        <input type="text" name="staggeredColor" value="{{ staggeredColor }}" />
+        <input type="color" value="{{ staggeredColor }}" data-edit="staggeredColor" />
+      </div>
+    </div>
+
+    {{!-- Temp Max --}}
     <div class="form-group">
       <label>{{ localize "HPBAR.MaxPositiveColor" }}</label>
       <div class="form-fields">
