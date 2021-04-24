@@ -10,7 +10,7 @@ export function addTokenHPBarClass(cls) {
   const TokenClass = _tokenClass();
   log(`Adding ${TokenClass.name}._hpBarClass`);
 
-  _tokenClass().prototype._hpBarClass = cls;
+  TokenClass.prototype._hpBarClass = cls;
 }
 
 
