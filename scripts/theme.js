@@ -28,7 +28,7 @@ export function registerSettings() {
     hint: "SETTINGS.HPBarSelectedThemeHint",
     scope: "client",
     config: false,
-    default: "",
+    default: "Standard",
     type: String
   });
 
@@ -71,7 +71,7 @@ class ThemeConfig extends FormApplication {
     const customizedTheme = game.settings.get(constants.moduleName, "customizedTheme");
     return Object.keys(defaultTheme).reduce((theme, key) => {
       const value = customizedTheme[key] ?? defaultTheme[key];
-      theme[key] = `#${value.toString(16)}`;
+      theme[key] = `#${value.toString(16).padStart(6, "0")}`;
       return theme;
     }, {});
   }
@@ -94,10 +94,11 @@ class ThemeConfig extends FormApplication {
 
   /** @inheritdoc */
   async _updateObject(event, formData) {
-    let theme = {};
-    for ( const [key, value] of Object.entries(formData) ) {
-      theme[key] = parseInt(value.slice(1), 16);
-    }
+    let theme = Object.keys(defaultTheme).reduce((theme, key) => {
+      theme[key] = parseInt(formData[key].replace("#", "").trim(), 16);
+      if ( isNaN(theme[key]) ) theme[key] = defaultTheme[key];
+      return theme;
+    }, {});
     await game.settings.set(constants.moduleName, "customizedTheme", theme);
   }
 }
