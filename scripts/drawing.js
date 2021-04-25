@@ -38,7 +38,7 @@ export class Draw {
   }
 
   mainBorder() {
-    return this.outerBorder(1.0, Color.black, 1.0);
+    return this.border();
   }
 
   current(pct, color) {
@@ -57,6 +57,11 @@ export class Draw {
     return this;
   }
 
+  nonlethal(pct, color=Color.nonlethal) {
+    if (pct <= 0) return this;
+    return this.border(pct, this.b, 2, color);
+  }
+
   fill(pct, color) {
     this.bar.beginFill(color, 0.5)
             .lineStyle(0)
@@ -71,10 +76,10 @@ export class Draw {
     return this;
   }
 
-  outerBorder(pct, color, opacity=0.7) {
-    this.bar.beginFill(Color.black, 0.0)
+  border(pct=1.0, inset=0, radius=3, color=Color.black, opacity=1.0) {
+    this.bar.beginFill(0, 0.0)
             .lineStyle(this.b, color, opacity)
-            .drawRoundedRect(0, 0, pct*this.w, this.h, 3);
+            .drawRoundedRect(inset, inset, (pct*this.w)-(2*inset), this.h-(2*inset), radius);
     return this;
   }
 }

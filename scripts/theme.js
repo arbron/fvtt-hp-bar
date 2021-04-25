@@ -47,8 +47,8 @@ export function registerSettings() {
 
 export const defaultTheme = {
   tempColor: 0x66ccff,
-  nonlethalColor: 0xd4f4d4,
-  staggeredColor: 0xf43333,
+  nonlethalColor: 0xffff00,
+  staggeredColor: 0xff0000,
   maxPositiveColor: 0xf4f4f4,
   maxNegativeColor: 0xb30000
 };

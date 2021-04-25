@@ -45,7 +45,7 @@ export default class HPBarBase {
     if (_hp.nonlethal > 0) {
       const nonlethalPct = Math.clamped(hp.nonlethal, 0, size) / size;
       const nonlethalColor = (nonlethalPct < valuePct) ? Color.nonlethal : Color.staggered;
-      draw.outerBorder(nonlethalPct, nonlethalColor);
+      draw.nonlethal(nonlethalPct, nonlethalColor);
     }
   }
 
