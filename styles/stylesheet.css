@@ -1,0 +1,12 @@
+.hpbar-theme-config .form-header {
+  border-top: 1px solid #b5b3a4;
+  border-bottom: 1px solid #f0f0e0;
+  margin-bottom: 5px;
+}
+
+.hpbar-theme-config .form-header h3 {
+  line-height: 28px;
+  margin: 0;
+  border-top: 1px solid #f0f0e0;
+  border-bottom: 1px solid #b5b3a4;
+}

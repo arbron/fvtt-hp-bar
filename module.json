@@ -28,6 +28,9 @@
   "esmodules": [
     "./scripts/main.js"
   ],
+  "styles": [
+    "./styles/stylesheet.css"
+  ],
   "languages": [
     {
       "lang": "en",

@@ -1,4 +1,7 @@
 {
+  "HPBAR.HeaderMax": "Maximum",
+  "HPBAR.HeaderNonlethal": "Nonlethal",
+  "HPBAR.HeaderTemp": "Temporary",
   "HPBAR.MaxNegativeColor": "Negative Max HP Color",
   "HPBAR.MaxPositiveColor": "Positive Max HP Color",
   "HPBAR.NonlethalColor": "Nonlethal Color",

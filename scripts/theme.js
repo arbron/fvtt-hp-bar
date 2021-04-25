@@ -61,7 +61,8 @@ class ThemeConfig extends FormApplication {
       title: game.i18n.localize("HPBAR.ThemeConfigTitle"),
       id: "hpbar-theme-config",
       template: `${constants.templateRoot}/theme-config.html`,
-      width: 500
+      width: 500,
+      classes: ["hpbar-theme-config"]
     });
   }
 
