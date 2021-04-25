@@ -39,7 +39,8 @@ export default class HPBarBase {
 
     draw.background()
         .current(valuePct, Color.forValue(valueColorPct))
-        .temp(tempPct);
+        .temp(tempPct)
+        .mainBorder();
 
     if (_hp.nonlethal > 0) {
       const nonlethalPct = Math.clamped(hp.nonlethal, 0, size) / size;

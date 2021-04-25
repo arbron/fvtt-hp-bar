@@ -25,7 +25,7 @@ export default class DnD5eBar extends HPBarBase {
     const tempPct = Math.clamped(hp.temp, 0, size) / size;
     const valuePct = Math.clamped(hp.value, 0, currentMax) / size;
     const maxPct = Math.clamped(positiveMax - Math.abs(hp.tempmax), 0, positiveMax) / size;
-    const valueColorPct = Math.clamped(hp.value, 0, currentMax) / currentMax;
+    const valueColorPct = Math.clamped(hp.value, 0, currentMax) / size;
 
     const maxBackgroundColor = (hp.tempmax > 0) ? Color.maxPositive : Color.maxNegative;
 
@@ -36,7 +36,8 @@ export default class DnD5eBar extends HPBarBase {
       draw.fill(maxPct, maxBackgroundColor);
 
     draw.current(valuePct, Color.forValue(valueColorPct))
-        .temp(tempPct);
+        .temp(tempPct)
+        .mainBorder();
 
     // Negative temp max line
     if (hp.tempmax < 0)
