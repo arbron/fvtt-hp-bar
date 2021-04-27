@@ -22,51 +22,42 @@ export default class DemonLordBar extends HPBarBase {
     return attribute === "characteristics.health";
   }
 
+  prepareData() {
+    const health = duplicate(super.data.characteristics.health);
+    const bonus = Number(super.data.characteristics.healthbonus);
+    const max = Number(health.max)
+    const damage = Number(health.value)
+
+    const value = max + bonus - damage
+
+    return { max, bonus, value, injured: health.injured ?? false }
+  }
+
   /** @inheritdoc */
   draw(draw) {
-    const hp = this.data;
+    const hp = this.prepareData();
 
-    let size = hp.max;
-    const currentMax = Math.max(0, Number(hp.max) + Number(hp.tempmax));
+    // Size of bar is max + bonus if bonus is positive
+    const effectiveMax = Math.max(0, hp.max + hp.bonus);
+    const displayMax = hp.max + (hp.bonus > 0 ? hp.bonus : 0);
 
-    // Size of bar is max + temp max if temp max is positive
-    if (hp.tempmax > 0) size += hp.tempmax;
-    const positiveMax = size;
+    const valuePct = Math.clamped(hp.value, 0, effectiveMax) / displayMax;
+    const bonusPct = Math.clamped(displayMax - Math.abs(hp.bonus), 0, effectiveMax) / displayMax;
 
-    const valuePct = Math.clamped(hp.value, 0, currentMax) / size;
-    const maxPct = Math.clamped(positiveMax - Math.abs(hp.tempmax), 0, positiveMax) / size;
-
-    const maxBackgroundColor = (hp.tempmax > 0) ? Color.maxPositive : Color.maxNegative;
+    const bonusBackgroundColor = (hp.bonus > 0) ? Color.maxPositive : Color.maxNegative;
     const borderColor = hp.injured ? Color.themed("injuredColor") : Color.black;
 
     draw.background();
   
-    // Temp Max Background
-    if (hp.tempmax != 0)
-      draw.fill(maxPct, maxBackgroundColor);
+    // Bonus Background
+    if (hp.bonus != 0)
+      draw.fill(bonusPct, bonusBackgroundColor);
 
     draw.current(valuePct, Color.forValue(valuePct))
         .mainBorder(borderColor);
 
-    // Negative temp max line
-    if (hp.tempmax < 0)
-      draw.line(maxPct, 0xf4f4f4);
-  }
-
-  /** @inheritdoc */
-  get data() {
-    const health = duplicate(super.data.characteristics.health);
-    const healthbonus = Number(super.data.characteristics.healthbonus);
-    const max = Number(health.max)
-    const damage = Number(health.value)
-
-    const value = max + healthbonus - damage
-
-    return {
-      max,
-      tempmax: healthbonus,
-      value,
-      injured: health.injured ?? false
-    }
+    // Negative bonus line
+    if (hp.bonus < 0)
+      draw.line(bonusPct, 0xf4f4f4);
   }
 }
