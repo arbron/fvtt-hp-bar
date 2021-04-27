@@ -2,7 +2,7 @@ import HPBarBase from './default.js';
 import { Color } from '../drawing.js';
 
 
-export default class D35eHPBar extends HPBarBase {
+export default class DnD5eBar extends HPBarBase {
   draw(draw) {
     const _hp = duplicate(this.data.attributes.hp);
     const hp = {
@@ -42,7 +42,4 @@ export default class D35eHPBar extends HPBarBase {
     if (hp.tempmax < 0)
       draw.line(maxPct, 0xf4f4f4);
   }
-}
-
-export function drawHPBar(number, bar, data) {
 }

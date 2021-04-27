@@ -12,6 +12,12 @@ export default class HPBarBase {
     if ( token.data.height >= 2 ) this.h *= 1.6;  // Enlarge the bar for large tokens
   }
 
+  /**
+   * Should the custom HP bar drawing method be used?
+   *
+   * @param {String} attribute  Key path to the attribute to be drawn in the bar.
+   * @return {boolean}          Whether to use the custom HP bar or the core Foundry bar.
+   */
   static shouldDraw(attribute) {
     return attribute === "attributes.hp";
   }
@@ -67,8 +73,4 @@ export default class HPBarBase {
     let posY = this.barNumber === 0 ? this.token.h - this.h : 0;
     this.bar.position.set(0, posY);
   }
-}
-
-export function shouldDrawHPBar(attribute) {
-  return attribute === "attributes.hp";
 }
