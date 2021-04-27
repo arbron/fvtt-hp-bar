@@ -20,7 +20,7 @@ export default class HPBarBase {
   /**
    * Configuration options presented in the theme window along with their default values.
    *
-   * @return {Array}
+   * @return {Array.<ThemeCategory>}
    */
   static get themeOptions() {
     return [
@@ -29,6 +29,12 @@ export default class HPBarBase {
     ];
   }
 
+  /**
+   * Default theme configuration for bars that feature a temp HP bar.
+   *
+   * @type {ThemeCategory}
+   * @protected
+   */
   static get _defaultTempTheme() {
     return {
       label: "HPBAR.HeaderTemp",
@@ -39,6 +45,12 @@ export default class HPBarBase {
     };
   }
 
+  /**
+   * Default theme configuration for bars that feature a nonlethal damage indicator.
+   *
+   * @type {ThemeCategory}
+   * @protected
+   */
   static get _defaultNonlethalTheme() {
     return {
       label: "HPBAR.HeaderNonlethal",
@@ -50,6 +62,12 @@ export default class HPBarBase {
     }
   }
 
+  /**
+   * Default theme configuration for bars that feature temp max HP.
+   *
+   * @type {ThemeCategory}
+   * @protected
+   */
   static get _defaultMaxTheme() {
     return {
       label: "HPBAR.HeaderMax",

@@ -1,12 +1,42 @@
 import constants from './shared/constants.js';
 
 
+/**
+ * Theme configuration option.
+ *
+ * @typedef {object} ThemeOption
+ * @property {string} name - Name used to store and retrieve the option from a theme object.
+ * @property {string} label - Localized label for this option.
+ * @property {string} type - Type of data represented by this option. Currently only supports "color".
+ * @property {*} default - Default value used if theme is reset or an invalid value is provided.
+ */
+
+/**
+ * Grouping of theme options.
+ *
+ * @typedef {object} ThemeCategory
+ * @property {string} label - Localized label for this category.
+ * @property {string} icon - Font Awesome icon string (e.g. "fas fa-soap")
+ * @property {Array.<ThemeOption>} options - Individual options within the category.
+ */
+
+/**
+ * Default theme constructed from the 
+ */
 export let defaultTheme = {};
+
+/**
+ * Theme options gathered from the selected system.
+ *
+ * @type {Array.<ThemeCategory>}
+ */
 let themeOptions;
 
 /**
  * Use data provided by a system's themeOptions property to build a default
  * theme object.
+ *
+ * @param {HPBarBase} system - Drawing system providing the theme options.
  */
 export function prepareTheme(system) {
   themeOptions = system.themeOptions ?? [];
