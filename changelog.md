@@ -1,14 +1,14 @@
 # Changelog
 
 # 1.2.4
- - Add support for [Shadow of the Demon Lord](https://foundryvtt.com/packages/demonlord) (thanks Patrick Porto)
+ - Add support for [Shadow of the Demon Lord](https://foundryvtt.com/packages/demonlord) (thanks [Patrick](https://github.com/patrickporto))
 
 # 1.2.3
  - Upgrade compatible core version to 0.8.1
  - Fix compatibility for systems that extend the base Token class
 
 # 1.2.2
- - Add support for [Toolkit13 (13th Age Compatible)](https://foundryvtt.com/packages/archmage) (thanks Cody cswendrowski#9701)
+ - Add support for [Toolkit13 (13th Age Compatible)](https://foundryvtt.com/packages/archmage) (thanks [Cody](https://github.com/cswendrowski))
 
 # 1.2.1
  - Remove conflict note about [Bar Brawl](https://gitlab.com/woodentavern/foundryvtt-bar-brawl) which now works great! (thanks DJ Addi#1087)
