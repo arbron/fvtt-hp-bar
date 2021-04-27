@@ -4,17 +4,17 @@ import { defaultTheme } from "./theme.js";
 
 export class Color {
   static get black() { return 0x000000; }
-  static get temp() { return Color._themedColor("tempColor"); }
-  static get nonlethal() { return Color._themedColor("nonlethalColor"); }
-  static get staggered() { return Color._themedColor("staggeredColor"); }
-  static get maxPositive() { return Color._themedColor("maxPositiveColor"); }
-  static get maxNegative() { return Color._themedColor("maxNegativeColor"); }
+  static get temp() { return Color.themed("tempColor"); }
+  static get nonlethal() { return Color.themed("nonlethalColor"); }
+  static get staggered() { return Color.themed("staggeredColor"); }
+  static get maxPositive() { return Color.themed("maxPositiveColor"); }
+  static get maxNegative() { return Color.themed("maxNegativeColor"); }
 
   static forValue(pct) {
     return PIXI.utils.rgb2hex([(1-(pct/2)), pct, 0]);
   }
 
-  static _themedColor(key) {
+  static themed(key) {
     const theme = game.settings.get(constants.moduleName, "customizedTheme");
     return theme ? theme[key] ?? defaultTheme[key] : defaultTheme[key];
   }
@@ -37,8 +37,8 @@ export class Draw {
     return this;
   }
 
-  mainBorder() {
-    return this.border();
+  mainBorder(color=Color.black) {
+    return this.border({ color });
   }
 
   current(pct, color) {
@@ -59,7 +59,7 @@ export class Draw {
 
   nonlethal(pct, color=Color.nonlethal) {
     if (pct <= 0) return this;
-    return this.border(pct, this.b, 2, color);
+    return this.border({ pct, inset: this.b, radius: 2, color });
   }
 
   fill(pct, color) {
@@ -76,7 +76,7 @@ export class Draw {
     return this;
   }
 
-  border(pct=1.0, inset=0, radius=3, color=Color.black, opacity=1.0) {
+  border({ pct=1.0, inset=0, radius=3, color=Color.black, opacity=1.0 }={}) {
     this.bar.beginFill(0, 0.0)
             .lineStyle(this.b, color, opacity)
             .drawRoundedRect(inset, inset, (pct*this.w)-(2*inset), this.h-(2*inset), radius);

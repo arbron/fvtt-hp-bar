@@ -3,6 +3,15 @@ import { Color } from '../drawing.js';
 
 
 export default class DnD5eBar extends HPBarBase {
+  /** @inheritdoc */
+  static get themeOptions() {
+    return [
+      HPBarBase._defaultTempTheme,
+      HPBarBase._defaultMaxTheme
+    ];
+  }
+
+  /** @inheritdoc */
   draw(draw) {
     const _hp = duplicate(this.data.attributes.hp);
     const hp = {

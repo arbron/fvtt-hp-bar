@@ -1,6 +1,23 @@
 import constants from './shared/constants.js';
 
 
+export let defaultTheme = {};
+let themeOptions;
+
+/**
+ * Use data provided by a system's themeOptions property to build a default
+ * theme object.
+ */
+export function prepareTheme(system) {
+  themeOptions = system.themeOptions ?? [];
+
+  defaultTheme = themeOptions.reduce((acc, category) => {
+    category.options.map(option => acc[option.name] = option.default);
+    return acc;
+  }, {});
+}
+
+
 export function registerSettings() {
   const register = (key, data) => game.settings.register(constants.moduleName, key, data);
 
@@ -45,15 +62,6 @@ export function registerSettings() {
 }
 
 
-export const defaultTheme = {
-  tempColor: 0x66ccff,
-  nonlethalColor: 0xffff00,
-  staggeredColor: 0xff0000,
-  maxPositiveColor: 0xf4f4f4,
-  maxNegativeColor: 0xb30000
-};
-
-
 class ThemeConfig extends FormApplication {
   /** @inheritdoc */
   static get defaultOptions() {
@@ -69,11 +77,15 @@ class ThemeConfig extends FormApplication {
   /** @inheritdoc */
   getData(options) {
     const customizedTheme = game.settings.get(constants.moduleName, "customizedTheme");
-    return Object.keys(defaultTheme).reduce((theme, key) => {
-      const value = customizedTheme[key] ?? defaultTheme[key];
-      theme[key] = `#${value.toString(16).padStart(6, "0")}`;
-      return theme;
-    }, {});
+    const categories = themeOptions.map(category => {
+      category.options = category.options.map(option => {
+        const value = customizedTheme[option.name] ?? option.default;
+        option.value = `#${value.toString(16).padStart(6, "0")}`;
+        return option;
+      });
+      return category;
+    });
+    return { categories };
   }
 
   /** @inheritdoc */
@@ -94,11 +106,11 @@ class ThemeConfig extends FormApplication {
 
   /** @inheritdoc */
   async _updateObject(event, formData) {
-    let theme = Object.keys(defaultTheme).reduce((theme, key) => {
-      theme[key] = parseInt(formData[key].replace("#", "").trim(), 16);
-      if ( isNaN(theme[key]) ) theme[key] = defaultTheme[key];
-      return theme;
-    }, {});
+    let theme = game.settings.get(constants.moduleName, "customizedTheme");
+    for ( const key of Object.keys(defaultTheme) ) {
+      const value = parseInt(formData[key].replace("#", "").trim(), 16);
+      if ( !isNaN(value) ) theme[key] = value;
+    }
     await game.settings.set(constants.moduleName, "customizedTheme", theme);
   }
 }

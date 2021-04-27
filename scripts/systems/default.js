@@ -12,6 +12,60 @@ export default class HPBarBase {
     if ( token.data.height >= 2 ) this.h *= 1.6;  // Enlarge the bar for large tokens
   }
 
+
+  /* ---------------------------------------- */
+  /*            Theme Configuration           */
+  /* ---------------------------------------- */
+
+  /**
+   * Configuration options presented in the theme window along with their default values.
+   *
+   * @return {Array}
+   */
+  static get themeOptions() {
+    return [
+      HPBarBase._defaultTempTheme,
+      HPBarBase._defaultNonlethalTheme
+    ];
+  }
+
+  static get _defaultTempTheme() {
+    return {
+      label: "HPBAR.HeaderTemp",
+      icon: "fas fa-soap",
+      options: [
+        { name: "tempColor", label: "HPBAR.TempColor", type: "color", default: 0x66ccff }
+      ]
+    };
+  }
+
+  static get _defaultNonlethalTheme() {
+    return {
+      label: "HPBAR.HeaderNonlethal",
+      icon: "fas fa-fist-raised",
+      options: [
+        { name: "nonlethalColor", label: "HPBAR.NonlethalColor", type: "color", default: 0xffff00 },
+        { name: "staggeredColor", label: "HPBAR.StaggeredColor", type: "color", default: 0xff0000 }
+      ]
+    }
+  }
+
+  static get _defaultMaxTheme() {
+    return {
+      label: "HPBAR.HeaderMax",
+      icon: "fas fa-cloud-sun-rain",
+      options: [
+        { name: "maxPositiveColor", label: "HPBAR.MaxPositiveColor", type: "color", default: 0xf4f4f4 },
+        { name: "maxNegativeColor", label: "HPBAR.MaxNegativeColor", type: "color", default: 0xb30000 }
+      ]
+    }
+  }
+
+
+  /* ---------------------------------------- */
+  /*                  Drawing                 */
+  /* ---------------------------------------- */
+
   /**
    * Should the custom HP bar drawing method be used?
    *
@@ -58,6 +112,11 @@ export default class HPBarBase {
   /*              Private Methods             */
   /* ---------------------------------------- */
 
+  /**
+   * Step through the drawing process.
+   *
+   * @protected
+   */
   _draw() {
     this._predraw();
     const draw = new Draw(this.bar, this.token.w, this.h);
@@ -65,10 +124,20 @@ export default class HPBarBase {
     this._postdraw();
   }
 
+  /**
+   * Steps to perform before drawing.
+   *
+   * @protected
+   */
   _predraw() {
     // this.bar.clear();
   }
 
+  /**
+   * Steps to perform after drawing.
+   *
+   * @protected
+   */
   _postdraw() {
     // Set position
     let posY = this.barNumber === 0 ? this.token.h - this.h : 0;

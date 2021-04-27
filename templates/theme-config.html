@@ -1,61 +1,20 @@
 <form>
   <section class="content">
-
-    {{!-- Temp HP --}}
-    <header class="form-header">
-      <h3><i class="fas fa-soap"></i> {{ localize "HPBAR.HeaderTemp" }}</h3>
-    </header>
-
-    <div class="form-group">
-      <label>{{ localize "HPBAR.TempColor" }}</label>
-      <div class="form-fields">
-        <input type="text" name="tempColor" value="{{ tempColor }}" />
-        <input type="color" value="{{ tempColor }}" data-edit="tempColor" />
-      </div>
-    </div>
-
-    {{!-- Nonlethal --}}
-    <header class="form-header">
-      <h3><i class="fas fa-fist-raised"></i> {{ localize "HPBAR.HeaderNonlethal" }}</h3>
-    </header>
-
-    <div class="form-group">
-      <label>{{ localize "HPBAR.NonlethalColor" }}</label>
-      <div class="form-fields">
-        <input type="text" name="nonlethalColor" value="{{ nonlethalColor }}" />
-        <input type="color" value="{{ nonlethalColor }}" data-edit="nonlethalColor" />
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>{{ localize "HPBAR.StaggeredColor" }}</label>
-      <div class="form-fields">
-        <input type="text" name="staggeredColor" value="{{ staggeredColor }}" />
-        <input type="color" value="{{ staggeredColor }}" data-edit="staggeredColor" />
-      </div>
-    </div>
-
-    {{!-- Temp Max --}}
-    <header class="form-header">
-      <h3><i class="fas fa-cloud-sun-rain"></i> {{ localize "HPBAR.HeaderMax" }}</h3>
-    </header>
-
-    <div class="form-group">
-      <label>{{ localize "HPBAR.MaxPositiveColor" }}</label>
-      <div class="form-fields">
-        <input type="text" name="maxPositiveColor" value="{{ maxPositiveColor }}" />
-        <input type="color" value="{{ maxPositiveColor }}" data-edit="maxPositiveColor" />
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>{{ localize "HPBAR.MaxNegativeColor" }}</label>
-      <div class="form-fields">
-        <input type="text" name="maxNegativeColor" value="{{ maxNegativeColor }}" />
-        <input type="color" value="{{ maxNegativeColor }}" data-edit="maxNegativeColor" />
-      </div>
-    </div>
-
+    {{#each categories as |cat| }}
+      <header class="form-header">
+        <h3><i class="{{cat.icon}}"></i> {{ localize cat.label }}</h3>
+      </header>
+      
+      {{#each cat.options as |opt| }}
+        <div class="form-group">
+          <label>{{ localize opt.label }}</label>
+          <div class="form-fields">
+            <input type="text" name="{{ opt.name }}" value="{{ opt.value }}" />
+            <input type="color" value="{{ opt.value }}" data-edit="{{ opt.name }}" />
+          </div>
+        </div>
+      {{/each}}
+    {{/each}}
   </section>
   <footer class="sheet-footer flexrow">
       <button type="submit" name="submit">
