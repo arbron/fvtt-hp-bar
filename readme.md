@@ -9,23 +9,39 @@ Modifies the HP bar in various systems to represent the complexities of characte
 ![GitHub issues](https://img.shields.io/github/issues/arbron/fvtt-hp-bar?colorB=red)
 
 
+![Standard](images/standard.webp "Standard")
+
+
 ### Temp HP
 Displays a blue bar overlaying the current HP. If temp HP exceeds max HP, the bar will rescale to properly represent the proportion of temp to max.
 
-![Temp HP](images/temp-hp.jpg "Temp HP")
+![Temp HP](images/temp.webp "Temp HP")
 
 
 ### Max HP
-Displays positive temp max HP as a light grey addition to the bar on the right side and negative max as a dark gray bar. The color of the current HP bar is changed to accurately reflect the current max HP.
+Displays positive temp max HP as a light grey addition to the bar on the right side and negative max as a dark red bar with a vertical line.
 
-![Positive Max HP](images/max-hp-positive.jpg "Positive Max HP")
-![Negative Max HP](images/max-hp-negative.jpg "Negative Max HP")
+![Temp Max HP](images/max.webp "Temp Max HP")
 
 
 ### Nonlethal
 Displays an outline over the HP bar that is light green if the current nonlethal damage is less than current HP (aka not staggered) and red if it exceeds current HP.
 
-![Nonlethal](images/nonlethal.jpg "Nonlethal Damage")
+![Nonlethal](images/nonlethal.webp "Nonlethal Damage")
+![Nonlethal Damage with Temp HP](images/temp-nonlethal.webp "Nonlethal Damage with Temp HP")
+
+
+### Shadow of the Demon Lord
+Shadow of the Demon Lord uses the concept of damage rather than hit points, meaning the default HP bar displays backwards. This system reverses the bar to display correctly, and adds a red outline around the bar if the character is injured.
+
+![Shadow of the Demon Lord](images/demonlord.webp "Shadow of the Demon Lord")
+
+
+### Themes
+The default colors not working for you? Use the theme configurator to change the colors to your liking.
+
+![Theme Config Window](images/theme-config.webp "Theme Config Window")
+![Customized Theme](images/themed.webp "Customized Theme")
 
 
 #### Supported Systems

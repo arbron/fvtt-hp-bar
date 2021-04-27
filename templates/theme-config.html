@@ -1,0 +1,27 @@
+<form>
+  <section class="content">
+    {{#each categories as |cat| }}
+      <header class="form-header">
+        <h3><i class="{{cat.icon}}"></i> {{ localize cat.label }}</h3>
+      </header>
+      
+      {{#each cat.options as |opt| }}
+        <div class="form-group">
+          <label>{{ localize opt.label }}</label>
+          <div class="form-fields">
+            <input type="text" name="{{ opt.name }}" value="{{ opt.value }}" />
+            <input type="color" value="{{ opt.value }}" data-edit="{{ opt.name }}" />
+          </div>
+        </div>
+      {{/each}}
+    {{/each}}
+  </section>
+  <footer class="sheet-footer flexrow">
+      <button type="submit" name="submit">
+          <i class="far fa-save"></i> {{ localize "HPBAR.Save" }}
+      </button>
+      <button type="button" name="reset">
+          <i class="fas fa-undo"></i> {{ localize "HPBAR.Reset" }}
+      </button>
+  </footer>
+</form>

@@ -3,5 +3,6 @@ let constants = {
   moduleLabel: 'Arbron\'s Improved HP Bar',
 };
 constants.modulePath = `modules/${constants.moduleName}`;
+constants.templateRoot = `${constants.modulePath}/templates`;
 
 export default constants;
