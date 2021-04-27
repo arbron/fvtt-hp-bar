@@ -19,6 +19,7 @@ export default class DemonLordBar extends HPBarBase {
     const valuePct = Math.clamped(hp.value, 0, hp.max) / size;
 
     draw.background()
-        .current(valuePct, Color.forValue(valuePct));
+        .current(valuePct, Color.forValue(valuePct))
+        .mainBorder();
   }
 }
