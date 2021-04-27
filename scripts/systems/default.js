@@ -12,6 +12,78 @@ export default class HPBarBase {
     if ( token.data.height >= 2 ) this.h *= 1.6;  // Enlarge the bar for large tokens
   }
 
+
+  /* ---------------------------------------- */
+  /*            Theme Configuration           */
+  /* ---------------------------------------- */
+
+  /**
+   * Configuration options presented in the theme window along with their default values.
+   *
+   * @return {Array.<ThemeCategory>}
+   */
+  static get themeOptions() {
+    return [
+      HPBarBase._defaultTempTheme,
+      HPBarBase._defaultNonlethalTheme
+    ];
+  }
+
+  /**
+   * Default theme configuration for bars that feature a temp HP bar.
+   *
+   * @type {ThemeCategory}
+   * @protected
+   */
+  static get _defaultTempTheme() {
+    return {
+      label: "HPBAR.HeaderTemp",
+      icon: "fas fa-soap",
+      options: [
+        { name: "tempColor", label: "HPBAR.TempColor", type: "color", default: 0x66ccff }
+      ]
+    };
+  }
+
+  /**
+   * Default theme configuration for bars that feature a nonlethal damage indicator.
+   *
+   * @type {ThemeCategory}
+   * @protected
+   */
+  static get _defaultNonlethalTheme() {
+    return {
+      label: "HPBAR.HeaderNonlethal",
+      icon: "fas fa-fist-raised",
+      options: [
+        { name: "nonlethalColor", label: "HPBAR.NonlethalColor", type: "color", default: 0xffff00 },
+        { name: "staggeredColor", label: "HPBAR.StaggeredColor", type: "color", default: 0xff0000 }
+      ]
+    }
+  }
+
+  /**
+   * Default theme configuration for bars that feature temp max HP.
+   *
+   * @type {ThemeCategory}
+   * @protected
+   */
+  static get _defaultMaxTheme() {
+    return {
+      label: "HPBAR.HeaderMax",
+      icon: "fas fa-cloud-sun-rain",
+      options: [
+        { name: "maxPositiveColor", label: "HPBAR.MaxPositiveColor", type: "color", default: 0xf4f4f4 },
+        { name: "maxNegativeColor", label: "HPBAR.MaxNegativeColor", type: "color", default: 0xb30000 }
+      ]
+    }
+  }
+
+
+  /* ---------------------------------------- */
+  /*                  Drawing                 */
+  /* ---------------------------------------- */
+
   /**
    * Should the custom HP bar drawing method be used?
    *
@@ -39,12 +111,13 @@ export default class HPBarBase {
 
     draw.background()
         .current(valuePct, Color.forValue(valueColorPct))
-        .temp(tempPct);
+        .temp(tempPct)
+        .mainBorder();
 
     if (_hp.nonlethal > 0) {
       const nonlethalPct = Math.clamped(hp.nonlethal, 0, size) / size;
-      const nonlethalColor = (nonlethalPct < valuePct) ? 0xd4f4d4 : 0xf43333;
-      draw.outerBorder(nonlethalPct, nonlethalColor);
+      const nonlethalColor = (nonlethalPct < valuePct) ? Color.nonlethal : Color.staggered;
+      draw.nonlethal(nonlethalPct, nonlethalColor);
     }
   }
 
@@ -57,6 +130,11 @@ export default class HPBarBase {
   /*              Private Methods             */
   /* ---------------------------------------- */
 
+  /**
+   * Step through the drawing process.
+   *
+   * @protected
+   */
   _draw() {
     this._predraw();
     const draw = new Draw(this.bar, this.token.w, this.h);
@@ -64,10 +142,20 @@ export default class HPBarBase {
     this._postdraw();
   }
 
+  /**
+   * Steps to perform before drawing.
+   *
+   * @protected
+   */
   _predraw() {
     // this.bar.clear();
   }
 
+  /**
+   * Steps to perform after drawing.
+   *
+   * @protected
+   */
   _postdraw() {
     // Set position
     let posY = this.barNumber === 0 ? this.token.h - this.h : 0;
