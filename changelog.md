@@ -3,6 +3,7 @@
 # 2.0.0
  - Add theme customization to change the colors of the HP bars
  - Rework the bar design to be cleaner and clearer
+ - Add health bonus indicator for [Shadow of the Demon Lord](https://foundryvtt.com/packages/demonlord) (thanks again [Patrick](https://github.com/patrickporto))
 
 # 1.2.4
  - Add support for [Shadow of the Demon Lord](https://foundryvtt.com/packages/demonlord) (thanks [Patrick](https://github.com/patrickporto))
