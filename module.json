@@ -1,7 +1,7 @@
 {
   "name": "arbron-hp-bar",
   "title": "Arbron's Improved HP Bar",
-  "description": "Modifies the HP bar in 5e to represent temp & max HP.",
+  "description": "Modifies the HP bar in various systems to represent the complexities of character health.",
   "author": "Jeff 'Arbron' Hitchcock",
   "authors": [
     {
@@ -20,11 +20,11 @@
   "changelog": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/changelog.md",
   "bugs": "https://github.com/arbron/fvtt-hp-bar/issues",
   "allowBugReporter": true,
-  "version": "1.2.3",
+  "version": "1.2.4",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.8.1",
   "manifestPlusVersion": "1.1.0",
-  "system": ["demonlord", "dnd5e", "D35E", "pf1", "pf2e", "archmage"],
+  "system": ["archmage", "demonlord", "D35E", "dnd5e", "pf1", "pf2e"],
   "esmodules": [
     "./scripts/main.js"
   ]

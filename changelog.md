@@ -1,5 +1,8 @@
 # Changelog
 
+# 1.2.4
+ - Add support for [Shadow of the Demon Lord](https://foundryvtt.com/packages/demonlord) (thanks Patrick Porto)
+
 # 1.2.3
  - Upgrade compatible core version to 0.8.1
  - Fix compatibility for systems that extend the base Token class
