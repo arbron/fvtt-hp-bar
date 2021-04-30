@@ -6,6 +6,7 @@ export default class DemonLordBar extends HPBarBase {
   /** @inheritdoc */
   static get themeOptions() {
     return [
+      ...super.themeOptions,
       HPBarBase._defaultMaxTheme("Bonus"),
       {
         label: "HPBAR.HeaderInjured",
@@ -45,7 +46,7 @@ export default class DemonLordBar extends HPBarBase {
     const bonusPct = Math.clamped(displayMax - Math.abs(hp.bonus), 0, effectiveMax) / displayMax;
 
     const bonusBackgroundColor = (hp.bonus > 0) ? Color.maxPositive : Color.maxNegative;
-    const borderColor = hp.injured ? Color.themed("injuredColor") : Color.black;
+    const borderColor = hp.injured ? Color.themed("injured") : Color.border;
 
     draw.background();
   

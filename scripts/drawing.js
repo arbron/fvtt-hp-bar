@@ -4,11 +4,13 @@ import { defaultTheme } from "./theme.js";
 
 export class Color {
   static get black() { return 0x000000; }
-  static get temp() { return Color.themed("tempColor"); }
-  static get nonlethal() { return Color.themed("nonlethalColor"); }
-  static get staggered() { return Color.themed("staggeredColor"); }
-  static get maxPositive() { return Color.themed("maxPositiveColor"); }
-  static get maxNegative() { return Color.themed("maxNegativeColor"); }
+  static get background() { return Color.themed("background"); }
+  static get border() { return Color.themed("border"); }
+  static get temp() { return Color.themed("temp"); }
+  static get nonlethal() { return Color.themed("nonlethal"); }
+  static get staggered() { return Color.themed("staggered"); }
+  static get maxPositive() { return Color.themed("maxPositive"); }
+  static get maxNegative() { return Color.themed("maxNegative"); }
 
   static forValue(pct) {
     return PIXI.utils.rgb2hex([(1-(pct/2)), pct, 0]);
@@ -16,6 +18,7 @@ export class Color {
 
   static themed(key) {
     const theme = game.settings.get(constants.moduleName, "customizedTheme");
+    key = `${key}Color`;
     return theme ? theme[key] ?? defaultTheme[key] : defaultTheme[key];
   }
 }
@@ -31,20 +34,20 @@ export class Draw {
   }
 
   background() {
-    this.bar.beginFill(Color.black, 0.5)
+    this.bar.beginFill(Color.background, 0.5)
             .lineStyle(0)
             .drawRoundedRect(0, 0, this.w, this.h, 3);
     return this;
   }
 
-  mainBorder(color=Color.black) {
+  mainBorder(color=Color.border) {
     return this.border({ color });
   }
 
   current(pct, color) {
     if (pct <= 0) return this;
     this.bar.beginFill(color, 1.0)
-            .lineStyle(1, Color.black, 1.0)
+            .lineStyle(1, Color.border, 1.0)
             .drawRoundedRect(0, 0, pct*(this.w), this.h, 2);
     return this;
   }
@@ -76,7 +79,7 @@ export class Draw {
     return this;
   }
 
-  border({ pct=1.0, inset=0, radius=3, color=Color.black, opacity=1.0 }={}) {
+  border({ pct=1.0, inset=0, radius=3, color=Color.border, opacity=1.0 }={}) {
     this.bar.beginFill(0, 0.0)
             .lineStyle(this.b, color, opacity)
             .drawRoundedRect(inset, inset, (pct*this.w)-(2*inset), this.h-(2*inset), radius);

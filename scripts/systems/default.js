@@ -23,7 +23,16 @@ export default class HPBarBase {
    * @return {Array.<ThemeCategory>}
    */
   static get themeOptions() {
-    return [];
+    return [
+      {
+        label: "HPBAR.HeaderGeneral",
+        icon: "fas fa-palette",
+        options: [
+          { name: "backgroundColor", label: "HPBAR.BackgroundColor", type: "color", default: 0x000000 },
+          { name: "borderColor", label: "HPBAR.BorderColor", type: "color", default: 0x000000 },
+        ]
+      }
+    ];
   }
 
   /**
