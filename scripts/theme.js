@@ -87,7 +87,15 @@ export function registerSettings() {
     config: false,
     default: defaultTheme,
     type: Object,
-    onChange: value => { canvas?.draw(); }
+    onChange: value => { 
+      if ( isNewerVersion("0.8.0", game.data.version) ) {
+        canvas?.draw();
+      } else {
+        game.canvas.scene.data.tokens.map(token => {
+          token.object.drawBars();
+        });
+      }
+    }
   });
 }
 
