@@ -1,5 +1,8 @@
 {
+  "HPBAR.BonusNegativeColor": "Negative Bonus Color",
+  "HPBAR.BonusPositiveColor": "Positive Bonus Color",
   "HPBAR.HeaderInjured": "Injured",
+  "HPBAR.HeaderBonus": "Health Bonus",
   "HPBAR.HeaderMax": "Maximum",
   "HPBAR.HeaderNonlethal": "Nonlethal",
   "HPBAR.HeaderTemp": "Temporary",

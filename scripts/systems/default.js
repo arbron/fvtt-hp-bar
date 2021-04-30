@@ -65,13 +65,13 @@ export default class HPBarBase {
    * @type {ThemeCategory}
    * @protected
    */
-  static get _defaultMaxTheme() {
+  static _defaultMaxTheme(localizationName="Max") {
     return {
-      label: "HPBAR.HeaderMax",
+      label: `HPBAR.Header${localizationName}`,
       icon: "fas fa-cloud-sun-rain",
       options: [
-        { name: "maxPositiveColor", label: "HPBAR.MaxPositiveColor", type: "color", default: 0xf4f4f4 },
-        { name: "maxNegativeColor", label: "HPBAR.MaxNegativeColor", type: "color", default: 0xb30000 }
+        { name: "maxPositiveColor", label: `HPBAR.${localizationName}PositiveColor`, type: "color", default: 0xf4f4f4 },
+        { name: "maxNegativeColor", label: `HPBAR.${localizationName}NegativeColor`, type: "color", default: 0xb30000 }
       ]
     }
   }

@@ -7,7 +7,7 @@ export default class DnD5eBar extends HPBarBase {
   static get themeOptions() {
     return [
       HPBarBase._defaultTempTheme,
-      HPBarBase._defaultMaxTheme
+      HPBarBase._defaultMaxTheme()
     ];
   }
 

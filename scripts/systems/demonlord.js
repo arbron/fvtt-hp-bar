@@ -6,7 +6,7 @@ export default class DemonLordBar extends HPBarBase {
   /** @inheritdoc */
   static get themeOptions() {
     return [
-      HPBarBase._defaultMaxTheme,
+      HPBarBase._defaultMaxTheme("Bonus"),
       {
         label: "HPBAR.HeaderInjured",
         icon: "fas fa-user-injured",
