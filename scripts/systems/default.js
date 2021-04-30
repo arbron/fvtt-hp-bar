@@ -23,10 +23,7 @@ export default class HPBarBase {
    * @return {Array.<ThemeCategory>}
    */
   static get themeOptions() {
-    return [
-      HPBarBase._defaultTempTheme,
-      HPBarBase._defaultNonlethalTheme
-    ];
+    return [];
   }
 
   /**
