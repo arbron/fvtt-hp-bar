@@ -1,5 +1,10 @@
 # Changelog
 
+# 2.0.1
+ - Add ability to customize bar background and border
+ - Prevent needing to rerender whole canvas 0.8.x versions
+ - Fix build bug resulting in missing files for some people who downloaded 2.0.0
+
 # 2.0.0
  - Add theme customization to change the colors of the HP bars
  - Rework the bar design to be cleaner and clearer
