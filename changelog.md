@@ -2,6 +2,7 @@
 
 # 2.0.1
  - Add ability to customize bar background and border
+ - Upgrade compatible core version to 0.8.2
  - Prevent needing to rerender whole canvas 0.8.x versions
  - Fix build bug resulting in missing files for some people who downloaded 2.0.0
 
