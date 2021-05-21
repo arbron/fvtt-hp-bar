@@ -1,5 +1,10 @@
 # Changelog
 
+# 2.0.2
+ - Add support for [Tormenta20](https://foundryvtt.com/packages/tormenta20) (thanks [Matheus](https://github.com/mclemente))
+ - Add Brazilian Portuguese translation (also thanks Matheus)
+ - Upgrade compatible core version to 0.8.5
+
 # 2.0.1
  - Add ability to customize bar background and border
  - Upgrade compatible core version to 0.8.2
