@@ -20,9 +20,9 @@
   "changelog": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/changelog.md",
   "bugs": "https://github.com/arbron/fvtt-hp-bar/issues",
   "allowBugReporter": true,
-  "version": "2.0.2",
+  "version": "2.0.3",
   "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "0.8.5",
+  "compatibleCoreVersion": "0.8.6",
   "manifestPlusVersion": "1.1.0",
   "system": ["archmage", "demonlord", "D35E", "dnd5e", "pf1", "pf2e", "tormenta20"],
   "esmodules": [

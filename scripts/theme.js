@@ -63,7 +63,7 @@ export function registerSettings() {
   register("themes", {
     name: "SETTINGS.HPBarThemes",
     hint: "SETTINGS.HPBarThemesHint",
-    scope: "global",
+    scope: "client",
     config: false,
     default: [],
     type: Array

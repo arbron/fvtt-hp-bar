@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.0.3
+ - Upgrade compatible core version to 0.8.6
+
 # 2.0.2
  - Add support for [Tormenta20](https://foundryvtt.com/packages/tormenta20) (thanks [Matheus](https://github.com/mclemente))
  - Add Brazilian Portuguese translation (also thanks Matheus)

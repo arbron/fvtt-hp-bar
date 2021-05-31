@@ -1,3 +1,4 @@
+import constants from './shared/constants.js';
 import { error, log } from './shared/messages.js';
 import DefaultHPBar from './systems/default.js';
 import * as patches from './patches.js';
@@ -18,6 +19,15 @@ Hooks.once('setup', async function() {
 
   patches.addTokenHPBarClass(drawingSystem);
   patches.patchTokenDrawBar();
+
+  // Settings version used for migrations if necessary
+  game.settings.register(constants.moduleName, "settingVersion", {
+    name: "Settings Version",
+    scope: "client",
+    config: false,
+    default: 1,
+    type: Number
+  });
 
   prepareTheme(drawingSystem);
   registerSettings();
