@@ -26,7 +26,9 @@ export class Color {
 export class Draw {
   constructor(bar, width, height) {
     this.bar = bar;
-    this.bar.clear();
+    try {
+      this.bar.clear();
+    } catch (err) {}
     this.w = width;
     this.h = height;
     this.b = Math.clamped(this.h / 8, 1, 2);

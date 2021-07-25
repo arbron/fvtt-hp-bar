@@ -153,9 +153,7 @@ export default class HPBarBase {
    *
    * @protected
    */
-  _predraw() {
-    this.bar.clear();
-  }
+  _predraw() {}
 
   /**
    * Steps to perform after drawing.

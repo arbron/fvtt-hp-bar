@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.0.4
+ - Fix bug with bar drawing in Pathfinder 2e (thanks Infamous#2922)
+
 # 2.0.3
  - Upgrade compatible core version to 0.8.6
 

@@ -1,11 +1,11 @@
 {
   "name": "arbron-hp-bar",
-  "title": "Arbron's Improved HP Bar",
+  "title": "Arbron’s Improved HP Bar",
   "description": "Modifies the HP bar in various systems to represent the complexities of character health.",
-  "author": "Jeff 'Arbron' Hitchcock",
+  "author": "Jeff ‘Arbron’ Hitchcock",
   "authors": [
     {
-      "name": "Jeff 'Arbron' Hitchcock",
+      "name": "Jeff ‘Arbron’ Hitchcock",
       "url": "https://moviemaps.org",
       "email": "jeff@szed.co",
       "discord": "arbron#6515",
@@ -20,9 +20,9 @@
   "changelog": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/changelog.md",
   "bugs": "https://github.com/arbron/fvtt-hp-bar/issues",
   "allowBugReporter": true,
-  "version": "2.0.3",
+  "version": "2.0.4",
   "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.8",
   "manifestPlusVersion": "1.1.0",
   "system": ["archmage", "demonlord", "D35E", "dnd5e", "pf1", "pf2e", "tormenta20"],
   "esmodules": [
@@ -39,7 +39,7 @@
     },
     {
       "lang": "pt-BR",
-      "name": "Portugu�s (Brasil)",
+      "name": "Português (Brasil)",
       "path": "lang/pt-br.json"
     }
   ]
