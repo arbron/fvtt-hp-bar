@@ -25,7 +25,7 @@ export default class DemonLordBar extends HPBarBase {
 
   prepareData() {
     const health = duplicate(super.data.characteristics.health);
-    const bonus = Number(super.data.characteristics.healthbonus);
+    const bonus = Number(super.data.characteristics.healthbonus ?? 0);
     const max = Number(health.max)
     const damage = Number(health.value)
 
