@@ -1,7 +1,11 @@
 # Changelog
 
+# 2.0.5
+ - Fix bug with undefined health bonus in Shadow of the Demon Lord (thanks [Patrick](https://github.com/patrickporto))
+
 # 2.0.4
  - Fix bug with bar drawing in Pathfinder 2e (thanks Infamous#2922)
+ - Upgrade compatible core version to 0.8.8
 
 # 2.0.3
  - Upgrade compatible core version to 0.8.6
