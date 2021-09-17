@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.1.0
+ - Add opacity control to theme customization (thanks Durango807#1478 for the idea)
+
 # 2.0.5
  - Fix bug with undefined health bonus in Shadow of the Demon Lord (thanks [Patrick](https://github.com/patrickporto))
 

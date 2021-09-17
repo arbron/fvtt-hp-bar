@@ -19,8 +19,7 @@
   "readme": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/readme.md",
   "changelog": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/changelog.md",
   "bugs": "https://github.com/arbron/fvtt-hp-bar/issues",
-  "allowBugReporter": true,
-  "version": "2.0.5",
+  "version": "2.1.0",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.8.8",
   "manifestPlusVersion": "1.1.0",
@@ -42,5 +41,8 @@
       "name": "Português (Brasil)",
       "path": "lang/pt-br.json"
     }
+  ],
+  "flags": [
+    "allowBugReporter": true
   ]
 }
