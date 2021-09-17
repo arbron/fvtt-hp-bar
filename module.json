@@ -42,7 +42,7 @@
       "path": "lang/pt-br.json"
     }
   ],
-  "flags": [
+  "flags": {
     "allowBugReporter": true
-  ]
+  }
 }
