@@ -33,6 +33,9 @@ export class Draw {
     this.h = height;
     this.b = Math.clamped(this.h / 8, 1, 2);
     this.i = this.b + 1;
+
+    const theme = game.settings.get(constants.moduleName, "customizedTheme");
+    this.bar.alpha = theme.opacity ?? 1.0;
   }
 
   background() {

@@ -30,6 +30,7 @@ export default class HPBarBase {
         options: [
           { name: "backgroundColor", label: "HPBAR.BackgroundColor", type: "color", default: 0x000000 },
           { name: "borderColor", label: "HPBAR.BorderColor", type: "color", default: 0x000000 },
+          { name: "opacity", label: "HPBAR.Opacity", type: "range", default: 1.0, min: 0.0, max: 1.0, step: 0.05 },
         ]
       }
     ];

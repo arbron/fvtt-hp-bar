@@ -1,4 +1,5 @@
 import constants from './shared/constants.js';
+import { error } from './shared/messages.js';
 
 
 /**
@@ -101,6 +102,12 @@ export function registerSettings() {
 
 
 class ThemeConfig extends FormApplication {
+  /**
+   * Flat mapping of the config options.
+   * @type {object.<string, object>}
+   */
+  config = {};
+
   /** @inheritdoc */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -118,7 +125,18 @@ class ThemeConfig extends FormApplication {
     const categories = themeOptions.map(category => {
       category.options = category.options.map(option => {
         const value = customizedTheme[option.name] ?? option.default;
-        option.value = `#${value.toString(16).padStart(6, "0")}`;
+        switch (option.type) {
+          case "color":
+            option.value = `#${value.toString(16).padStart(6, "0")}`;
+            break;
+          case "range":
+            option.value = Number(value);
+            break;
+          default:
+            error(`Invalid theme option type: ${option.type}`);
+            break;
+        }
+        this.config[option.name] = option;
         return option;
       });
       return category;
@@ -146,8 +164,22 @@ class ThemeConfig extends FormApplication {
   async _updateObject(event, formData) {
     let theme = game.settings.get(constants.moduleName, "customizedTheme");
     for ( const key of Object.keys(defaultTheme) ) {
-      const value = parseInt(formData[key].replace("#", "").trim(), 16);
-      if ( !isNaN(value) ) theme[key] = value;
+      const option = this.config[key];
+      if ( !option ) continue;
+
+      let value = formData[key];
+      switch (option.type) {
+        case "color":
+          value = parseInt(formData[key].replace("#", "").trim(), 16);
+          break;
+        case "range":
+          value = Math.clamped(Number(value), option.min, option.max);
+          break;
+        default:
+          value = null;
+          break;
+      }
+      if ( value && !isNaN(value) ) theme[key] = value;
     }
     await game.settings.set(constants.moduleName, "customizedTheme", theme);
   }

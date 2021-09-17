@@ -8,9 +8,16 @@
       {{#each cat.options as |opt| }}
         <div class="form-group">
           <label>{{ localize opt.label }}</label>
+
           <div class="form-fields">
-            <input type="text" name="{{ opt.name }}" value="{{ opt.value }}" />
-            <input type="color" value="{{ opt.value }}" data-edit="{{ opt.name }}" />
+            {{#if (eq opt.type "color") }}
+              <input type="text" name="{{ opt.name }}" value="{{ opt.value }}" />
+              <input type="color" value="{{ opt.value }}" data-edit="{{ opt.name }}" />
+            {{/if}}
+            {{#if (eq opt.type "range") }}
+              <input type="range" name="{{ opt.name }}" value="{{ opt.value }}" min="{{ opt.min }}" max="{{ opt.max }}" step="{{ opt.step }}" />
+              <span class="range-value">{{ opt.value }}</span>
+            {{/if}}
           </div>
         </div>
       {{/each}}
