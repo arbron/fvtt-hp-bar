@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.1.1
+ - Upgrade compatible core version to v9
+
 # 2.1.0
  - Add opacity control to theme customization (thanks Durango807#1478 for the idea)
  - Upgrade compatible core version to 0.8.9
