@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.1.2
+ - Add support for [PTU](https://github.com/dylanpiera/Foundry-Pokemon-Tabletop-United-System) (thanks [GSV A Nest fo Kindled Embers](https://github.com/GSV-a-Nest-of-Kindled-Embers))
+
 # 2.1.1
  - Upgrade compatible core version to v9
 

@@ -19,11 +19,11 @@
   "readme": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/readme.md",
   "changelog": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/changelog.md",
   "bugs": "https://github.com/arbron/fvtt-hp-bar/issues",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "9",
   "manifestPlusVersion": "1.1.0",
-  "system": ["archmage", "demonlord", "D35E", "dnd5e", "pf1", "pf2e", "tormenta20", "ptu"],
+  "system": ["archmage", "demonlord", "D35E", "dnd5e", "pf1", "pf2e", "ptu", "tormenta20"],
   "esmodules": [
     "./scripts/main.js"
   ],
