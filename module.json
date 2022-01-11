@@ -23,7 +23,7 @@
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "9",
   "manifestPlusVersion": "1.1.0",
-  "system": ["archmage", "demonlord", "D35E", "dnd5e", "pf1", "pf2e", "tormenta20"],
+  "system": ["archmage", "demonlord", "D35E", "dnd5e", "pf1", "pf2e", "tormenta20", "ptu"],
   "esmodules": [
     "./scripts/main.js"
   ],
