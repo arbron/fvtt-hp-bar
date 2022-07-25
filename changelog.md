@@ -1,6 +1,7 @@
 # Changelog
 
 # 2.2.0
+ - Adjust patching to use libWrapper if available
  - Fix issue with temp HP color not being configurable in Toolkit13
  - Upgrade compatible core version to v10
 

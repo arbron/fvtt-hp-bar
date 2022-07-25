@@ -21,13 +21,14 @@ export function patchTokenDrawBar() {
   const TokenClass = _tokenClass();
   log(`Patching ${TokenClass.name}._drawBar`);
 
-  Monkey.replaceMethod(TokenClass, '_drawBar', function(number, bar, data) {
+  const prefix = CONFIG.Token?.objectClass ? "CONFIG.Token.objectClass" : "Token";
+  Monkey.mix(`${prefix}.prototype._drawBar`, function(wrapped, number, bar, data) {
     if (this._hpBarClass.shouldDraw(data.attribute)) {
       const hpBar = new this._hpBarClass(this, number, bar);
       return hpBar._draw();
     }
 
-    return Monkey.callOriginalFunction(this, '_drawBar', number, bar, data);
+    return wrapped(number, bar, data);
   });
 }
 
@@ -37,5 +38,5 @@ export function patchTokenDrawBar() {
  * @private
  */
 function _tokenClass() {
-  return CONFIG["Token"]?.objectClass ?? Token;
+  return CONFIG.Token?.objectClass ?? Token;
 }
