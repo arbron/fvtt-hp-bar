@@ -89,7 +89,7 @@
     ]
   },
   "esmodules": [
-    "./scripts/main.js"
+    "./scripts/main.mjs"
   ],
   "styles": [
     "./styles/stylesheet.css"

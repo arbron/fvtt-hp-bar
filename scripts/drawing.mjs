@@ -1,5 +1,5 @@
-import constants from './shared/constants.js';
-import { defaultTheme } from "./theme.js";
+import constants from './shared/constants.mjs';
+import { defaultTheme } from "./theme.mjs";
 
 
 export class Color {

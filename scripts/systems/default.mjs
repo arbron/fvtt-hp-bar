@@ -1,4 +1,4 @@
-import { Color, Draw } from '../drawing.js';
+import { Color, Draw } from '../drawing.mjs';
 
 
 export default class HPBarBase {

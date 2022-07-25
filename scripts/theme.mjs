@@ -1,5 +1,5 @@
-import constants from './shared/constants.js';
-import { error } from './shared/messages.js';
+import constants from './shared/constants.mjs';
+import { error } from './shared/messages.mjs';
 
 
 /**
@@ -112,7 +112,7 @@ class ThemeConfig extends FormApplication {
     return mergeObject(super.defaultOptions, {
       title: game.i18n.localize("HPBAR.ThemeConfigTitle"),
       id: "hpbar-theme-config",
-      template: `${constants.templateRoot}/theme-config.html`,
+      template: `${constants.templateRoot}/theme-config.hbs`,
       width: 500,
       classes: ["hpbar-theme-config"]
     });

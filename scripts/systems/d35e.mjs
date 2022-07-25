@@ -1,4 +1,4 @@
-import HPBarBase from './default.js';
+import HPBarBase from './default.mjs';
 
 
 export default class D35eBar extends HPBarBase {

@@ -1,5 +1,5 @@
-import HPBarBase from './default.js';
-import { Color } from '../drawing.js';
+import HPBarBase from './default.mjs';
+import { Color } from '../drawing.mjs';
 
 
 export default class DemonLordBar extends HPBarBase {

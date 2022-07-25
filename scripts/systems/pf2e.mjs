@@ -1,7 +1,7 @@
-import HPBarBase from './default.js';
+import HPBarBase from './default.mjs';
 
 
-export default class ArchmageBar extends HPBarBase {
+export default class PF2eBar extends HPBarBase {
   /** @inheritdoc */
   static get themeOptions() {
     return [

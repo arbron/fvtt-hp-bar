@@ -1,6 +1,6 @@
-import constants from './shared/constants.js';
-import { log, uiError } from './shared/messages.js';
-import { Monkey } from './shared/Monkey.js';
+import constants from './shared/constants.mjs';
+import { log, uiError } from './shared/messages.mjs';
+import { Monkey } from './shared/Monkey.mjs';
 
 
 /**

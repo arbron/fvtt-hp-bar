@@ -1,8 +1,8 @@
-import constants from './shared/constants.js';
-import { error, log } from './shared/messages.js';
-import DefaultHPBar from './systems/default.js';
-import * as patches from './patches.js';
-import { prepareTheme, registerSettings } from './theme.js';
+import constants from './shared/constants.mjs';
+import { error, log } from './shared/messages.mjs';
+import DefaultHPBar from './systems/default.mjs';
+import * as patches from './patches.mjs';
+import { prepareTheme, registerSettings } from './theme.mjs';
 
 
 Hooks.once('setup', async function() {
@@ -10,7 +10,7 @@ Hooks.once('setup', async function() {
   let drawingSystem;
   try {
     log(`Loading HP bar for ${system.title}`);
-    const drawingModule = await import(`./systems/${system.id ?? system.name}.js`);
+    const drawingModule = await import(`./systems/${system.id ?? system.name}.mjs`);
     drawingSystem = drawingModule.default;
   } catch(e) {
     log(`Falling back to generic HP bar drawing`);

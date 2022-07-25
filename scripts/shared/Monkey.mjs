@@ -3,7 +3,7 @@
  * https://github.com/League-of-Foundry-Developers/fvtt-module-furnace
  */
 
-import { log, makeError } from './messages.js';
+import { log, makeError } from './messages.mjs';
 
 
 const ORIG_PREFIX = "__hp_bar_original_"
