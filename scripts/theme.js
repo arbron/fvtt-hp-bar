@@ -89,12 +89,11 @@ export function registerSettings() {
     default: defaultTheme,
     type: Object,
     onChange: value => { 
-      if ( isNewerVersion("0.8.0", game.data.version) ) {
+      if ( (game.release?.generation ?? 0) < 8 ) {
         canvas?.draw();
       } else {
-        game.canvas.scene.data.tokens.map(token => {
-          token.object.drawBars();
-        });
+        const tokens = game.canvas.scene.tokens ?? game.canvas.scene.data.tokens;
+        tokens.map(token => token.object.drawBars());
       }
     }
   });

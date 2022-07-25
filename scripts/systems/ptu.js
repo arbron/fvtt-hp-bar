@@ -19,8 +19,8 @@ export default class PTUBar extends HPBarBase {
 
   /** @inheritdoc */
   draw(draw) {
-    const _hp = duplicate(this.data.health);
-    const _temphp = duplicate(this.data.tempHp);
+    const _hp = duplicate(this.system.health);
+    const _temphp = duplicate(this.system.tempHp);
     const hp = {
       max: Number(_hp.total),
       modified_max: Number(_hp.max),
@@ -28,7 +28,7 @@ export default class PTUBar extends HPBarBase {
       temp: Number(_temphp.value),
       tempmax: Number(_temphp.max),
       value: Number(_hp.value),
-    }
+    };
 
     let size = hp.max;
     let injury_multiplier = Number( Math.max(0, (10 - hp.injuries)) / 10);

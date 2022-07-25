@@ -6,11 +6,11 @@ import { prepareTheme, registerSettings } from './theme.js';
 
 
 Hooks.once('setup', async function() {
-  const system = game.system.data;
+  const system = (game.release?.generation >= 10) ? game.system : game.system.data;
   let drawingSystem;
   try {
     log(`Loading HP bar for ${system.title}`);
-    const drawingModule = await import(`./systems/${system.name}.js`);
+    const drawingModule = await import(`./systems/${system.id ?? system.name}.js`);
     drawingSystem = drawingModule.default;
   } catch(e) {
     log(`Falling back to generic HP bar drawing`);

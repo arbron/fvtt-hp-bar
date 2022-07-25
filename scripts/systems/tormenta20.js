@@ -19,12 +19,12 @@ export default class Tormenta20Bar extends HPBarBase {
 	
 	/** @inheritdoc */
   draw(draw) {
-    const _hp = duplicate(this.data.attributes.pv);
+    const _hp = duplicate(this.system.attributes.pv);
     const hp = {
       max: Number(_hp.max),
       temp: Number(_hp.temp),
       value: Number(_hp.value),
-    }
+    };
 
     const size = Math.max(hp.max, hp.temp);
   

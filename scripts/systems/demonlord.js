@@ -24,14 +24,14 @@ export default class DemonLordBar extends HPBarBase {
   }
 
   prepareData() {
-    const health = duplicate(super.data.characteristics.health);
-    const bonus = Number(super.data.characteristics.healthbonus ?? 0);
-    const max = Number(health.max)
-    const damage = Number(health.value)
+    const health = duplicate(this.system.characteristics.health);
+    const bonus = Number(this.system.characteristics.healthbonus ?? 0);
+    const max = Number(health.max);
+    const damage = Number(health.value);
 
-    const value = max + bonus - damage
+    const value = max + bonus - damage;
 
-    return { max, bonus, value, injured: health.injured ?? false }
+    return { max, bonus, value, injured: health.injured ?? false };
   }
 
   /** @inheritdoc */

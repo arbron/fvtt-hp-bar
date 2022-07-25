@@ -1,5 +1,9 @@
 # Changelog
 
+# 2.2.0
+ - Fix issue with temp HP color not being configurable in Toolkit13
+ - Upgrade compatible core version to v10
+
 # 2.1.2
  - Add support for [PTU](https://github.com/dylanpiera/Foundry-Pokemon-Tabletop-United-System) (thanks [GSV A Nest fo Kindled Embers](https://github.com/GSV-a-Nest-of-Kindled-Embers))
 

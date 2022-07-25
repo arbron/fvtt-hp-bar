@@ -14,13 +14,13 @@ export default class DnD5eBar extends HPBarBase {
 
   /** @inheritdoc */
   draw(draw) {
-    const _hp = duplicate(this.data.attributes.hp);
+    const _hp = duplicate(this.system.attributes.hp);
     const hp = {
       max: Number(_hp.max),
       temp: Number(_hp.temp),
       tempmax: Number(_hp.tempmax),
       value: Number(_hp.value),
-    }
+    };
 
     let size = hp.max;
     const currentMax = Math.max(0, Number(_hp.max) + Number(_hp.tempmax));
