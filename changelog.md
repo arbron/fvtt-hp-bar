@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.2.1
+- [#18] Fix bug with case sensitivity in system IDs
+
 # 2.2.0
  - Adjust patching to use libWrapper if available
  - Fix issue with temp HP color not being configurable in Toolkit13

@@ -10,7 +10,8 @@ Hooks.once('setup', async function() {
   let drawingSystem;
   try {
     log(`Loading HP bar for ${system.title}`);
-    const drawingModule = await import(`./systems/${system.id ?? system.name}.mjs`);
+    const systemId = (system.id ?? system.name).toLowerCase();
+    const drawingModule = await import(`./systems/${systemId}.mjs`);
     drawingSystem = drawingModule.default;
   } catch(e) {
     log(`Falling back to generic HP bar drawing`);
