@@ -2,14 +2,12 @@
   "HPBAR.Reset": "Resetar para Padrões",
   "HPBAR.Save": "Salvar Mudanças",
   "HPBAR.ThemeConfigTitle": "Tema da Barra de PV",
-
   "HPBAR.HeaderBonus": "Bônus de Vida",
   "HPBAR.HeaderGeneral": "Geral",
   "HPBAR.HeaderInjured": "Machucado",
   "HPBAR.HeaderMax": "Máximo",
   "HPBAR.HeaderNonlethal": "Não letal",
   "HPBAR.HeaderTemp": "Temporário",
-
   "HPBAR.BackgroundColor": "Cor de Fundo",
   "HPBAR.BonusNegativeColor": "Cor de Bônus Negativo",
   "HPBAR.BonusPositiveColor": "Cor de Bônus Positivo",
@@ -20,7 +18,6 @@
   "HPBAR.NonlethalColor": "Cor Não letal",
   "HPBAR.StaggeredColor": "Cor Abatido",
   "HPBAR.TempColor": "Cor PV Temp",
-
   "SETTINGS.HPBarCustomizedTheme": "Tema Customizado",
   "SETTINGS.HPBarCustomizedThemeHint": "Mudanças aplicadas ao tema que não foram salvas para o preset do tema.",
   "SETTINGS.HPBarSelectedTheme": "Tema Selecionado",
@@ -29,5 +26,6 @@
   "SETTINGS.HPBarThemeConfigLabel": "Configurar Tema",
   "SETTINGS.HPBarThemeConfigHint": "Mudar o estilo da barra de PV.",
   "SETTINGS.HPBarThemes": "Temas",
-  "SETTINGS.HPBarThemesHint": "Temas customizados disponíveis entre todos os mundos."
+  "SETTINGS.HPBarThemesHint": "Temas customizados disponíveis entre todos os mundos.",
+  "HPBAR.Opacity": "Opacidade"
 }

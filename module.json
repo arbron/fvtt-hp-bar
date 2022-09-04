@@ -27,7 +27,16 @@
     "minimum": "0.7.9",
     "verified": "10"
   },
-  "system": ["archmage", "demonlord", "D35E", "dnd5e", "pf1", "pf2e", "ptu", "tormenta20"],
+  "system": [
+    "archmage",
+    "demonlord",
+    "D35E",
+    "dnd5e",
+    "pf1",
+    "pf2e",
+    "ptu",
+    "tormenta20"
+  ],
   "relationships": {
     "systems": [
       {
@@ -104,6 +113,11 @@
       "lang": "pt-BR",
       "name": "Português (Brasil)",
       "path": "lang/pt-br.json"
+    },
+    {
+      "lang": "fi",
+      "name": "Suomi",
+      "path": "lang/fi.json"
     }
   ],
   "manifestPlusVersion": "1.2.0",
