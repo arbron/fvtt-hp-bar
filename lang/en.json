@@ -1,15 +1,13 @@
 {
-  "HPBAR.Reset": "Reset Defaults",
+  "HPBAR.Reset": "Reset to Defaults",
   "HPBAR.Save": "Save Changes",
   "HPBAR.ThemeConfigTitle": "HP Bar Theme",
-
   "HPBAR.HeaderBonus": "Health Bonus",
   "HPBAR.HeaderGeneral": "General",
   "HPBAR.HeaderInjured": "Injured",
   "HPBAR.HeaderMax": "Maximum",
   "HPBAR.HeaderNonlethal": "Nonlethal",
   "HPBAR.HeaderTemp": "Temporary",
-
   "HPBAR.BackgroundColor": "Background Color",
   "HPBAR.BonusNegativeColor": "Negative Bonus Color",
   "HPBAR.BonusPositiveColor": "Positive Bonus Color",
@@ -21,7 +19,6 @@
   "HPBAR.Opacity": "Opacity",
   "HPBAR.StaggeredColor": "Staggered Color",
   "HPBAR.TempColor": "Temp HP Color",
-
   "SETTINGS.HPBarCustomizedTheme": "Customized Theme",
   "SETTINGS.HPBarCustomizedThemeHint": "Changes applied to the theme that haven't been saved to a theme preset.",
   "SETTINGS.HPBarSelectedTheme": "Selected Theme",
