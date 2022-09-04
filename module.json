@@ -20,7 +20,7 @@
   "readme": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/readme.md",
   "changelog": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/changelog.md",
   "bugs": "https://github.com/arbron/fvtt-hp-bar/issues",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "10",
   "compatibility": {

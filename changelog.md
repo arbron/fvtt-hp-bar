@@ -1,5 +1,8 @@
 # Changelog
 
+# [2.2.3]
+- Fix issue with bar sizing [[#17]]
+
 # [2.2.2]
 - Add support for [D&D 4e] [[#16]]
 - Add [Finnish] translation
@@ -105,9 +108,11 @@
 [2.2.0]: https://github.com/arbron/fvtt-hp-bar/compare/2.1.2...2.2.0
 [2.2.1]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.0...2.2.1
 [2.2.2]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.1...2.2.2
+[2.2.3]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.2...2.2.3
 
 [#11]: https://github.com/arbron/fvtt-hp-bar/issues/11
 [#16]: https://github.com/arbron/fvtt-hp-bar/issues/16
+[#17]: https://github.com/arbron/fvtt-hp-bar/issues/17
 [#18]: https://github.com/arbron/fvtt-hp-bar/issues/18
 
 [D&D 3.5e]: https://foundryvtt.com/packages/D35E
