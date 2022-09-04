@@ -25,5 +25,6 @@
   "SETTINGS.HPBarThemeConfig": "Teema",
   "SETTINGS.HPBarThemeConfigLabel": "Määritä teema",
   "SETTINGS.HPBarThemeConfigHint": "Muuta KP-palkin muotoilua.",
-  "SETTINGS.HPBarThemes": "Teemat"
+  "SETTINGS.HPBarThemes": "Teemat",
+  "SETTINGS.HPBarThemesHint": "Mukautetut teemat ovat saatavilla kaikissa maailmoissa."
 }
