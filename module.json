@@ -31,6 +31,7 @@
     "archmage",
     "demonlord",
     "D35E",
+    "dnd4e",
     "dnd5e",
     "pf1",
     "pf2e",
@@ -58,6 +59,13 @@
         "manifest": "https://www.legaciesofthedragon.com/D35E/system.json",
         "compatibility": {
           "verified": "0.99"
+        }
+      },
+      {
+        "id": "dnd4e",
+        "manifest": "https://raw.githubusercontent.com/EndlesNights/dnd4eBeta/main/system.json",
+        "compatibility": {
+          "verified": "0.3.2"
         }
       },
       {

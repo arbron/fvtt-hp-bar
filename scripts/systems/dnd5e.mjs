@@ -3,7 +3,6 @@ import { Color } from '../drawing.mjs';
 
 
 export default class DnD5eBar extends HPBarBase {
-  /** @inheritdoc */
   static get themeOptions() {
     return [
       ...super.themeOptions,
@@ -11,19 +10,22 @@ export default class DnD5eBar extends HPBarBase {
       HPBarBase._defaultMaxTheme()
     ];
   }
-
-  /** @inheritdoc */
-  draw(draw) {
-    const _hp = duplicate(this.system.attributes.hp);
-    const hp = {
-      max: Number(_hp.max),
-      temp: Number(_hp.temp),
-      tempmax: Number(_hp.tempmax),
-      value: Number(_hp.value),
+  
+  prepareData() {
+    const hp = duplicate(this.system.attributes.hp);
+    return {
+      max: Number(hp.max),
+      temp: Number(hp.temp),
+      tempmax: Number(hp.tempmax),
+      value: Number(hp.value),
     };
+  }
+
+  draw(draw) {
+    const hp = this.prepareData();
 
     let size = hp.max;
-    const currentMax = Math.max(0, Number(_hp.max) + Number(_hp.tempmax));
+    const currentMax = Math.max(0, hp.max + hp.tempmax);
 
     // Size of bar is max + temp max if temp max is positive
     if (hp.tempmax > 0) size += hp.tempmax;

@@ -95,23 +95,31 @@ export default class HPBarBase {
    * Should the custom HP bar drawing method be used?
    *
    * @param {String} attribute  Key path to the attribute to be drawn in the bar.
-   * @return {boolean}          Whether to use the custom HP bar or the core Foundry bar.
+   * @returns {boolean}         Whether to use the custom HP bar or the core Foundry bar.
    */
   static shouldDraw(attribute) {
     return attribute === "attributes.hp";
   }
 
-  draw(draw) {
+  /**
+   * Prepare the data object before rendering.
+   * @returns {object}
+   */
+  prepareData() {
     let _hp = duplicate(this.system.attributes.hp);
-    const hp = {
+    return {
       max: Number(_hp.max),
       temp: Number(getProperty(_hp, "temp") || 0),
       nonlethal: Number(getProperty(_hp, "nonlethal") || 0),
       value: Number(_hp.value),
     };
-  
+  }
+
+  draw(draw) {
+    const hp = this.prepareData();
+
     const size = Math.max(hp.max, hp.temp);
-  
+
     const tempPct = Math.clamped(hp.temp, 0, size) / size;
     const valuePct = Math.clamped(hp.value, 0, hp.max) / size;
     const valueColorPct = Math.clamped(hp.value, 0, hp.max) / hp.max;
@@ -121,7 +129,7 @@ export default class HPBarBase {
         .temp(tempPct)
         .mainBorder();
 
-    if (_hp.nonlethal > 0) {
+    if (hp.nonlethal > 0) {
       const nonlethalPct = Math.clamped(hp.nonlethal, 0, size) / size;
       const nonlethalColor = (nonlethalPct < valuePct) ? Color.nonlethal : Color.staggered;
       draw.nonlethal(nonlethalPct, nonlethalColor);

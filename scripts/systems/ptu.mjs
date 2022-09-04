@@ -17,22 +17,26 @@ export default class PTUBar extends HPBarBase {
     return attribute === "health";
   }
 
+  prepareData() {
+    const hp = duplicate(this.system.health);
+    const tmphp = duplicate(this.system.tempHp);
+    return {
+      max: Number(hp.total),
+      modified_max: Number(hp.max),
+      injuries: Number(hp.injuries),
+      temp: Number(tmphp.value),
+      tempmax: Number(tmphp.max),
+      value: Number(hp.value),
+    };
+  }
+
   /** @inheritdoc */
   draw(draw) {
-    const _hp = duplicate(this.system.health);
-    const _temphp = duplicate(this.system.tempHp);
-    const hp = {
-      max: Number(_hp.total),
-      modified_max: Number(_hp.max),
-      injuries: Number(_hp.injuries),
-      temp: Number(_temphp.value),
-      tempmax: Number(_temphp.max),
-      value: Number(_hp.value),
-    };
+    const hp = this.prepareData();
 
     let size = hp.max;
-    let injury_multiplier = Number( Math.max(0, (10 - hp.injuries)) / 10);
-    let injury_loss = Math.floor(Number( Math.max(0, (hp.injuries/10) ) * hp.max ));
+    let injury_multiplier = Number(Math.max(0, (10 - hp.injuries)) / 10);
+    let injury_loss = Math.floor(Number(Math.max(0, (hp.injuries/10)) * hp.max ));
     const currentMax = Math.max(0, Math.floor(Number(hp.max * injury_multiplier)) + Number(hp.tempmax));
 
     const positiveMax = size;

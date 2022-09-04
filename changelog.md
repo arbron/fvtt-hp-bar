@@ -1,6 +1,7 @@
 # Changelog
 
 # [2.2.2]
+- Add support for [D&D 4e] [[#16]]
 - Add [Finnish] translation
 
 # [2.2.1]
@@ -106,10 +107,12 @@
 [2.2.2]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.1...2.2.2
 
 [#11]: https://github.com/arbron/fvtt-hp-bar/issues/11
+[#16]: https://github.com/arbron/fvtt-hp-bar/issues/16
 [#18]: https://github.com/arbron/fvtt-hp-bar/issues/18
 
-[D&D 5e]: https://foundryvtt.com/packages/dnd5e
 [D&D 3.5e]: https://foundryvtt.com/packages/D35E
+[D&D 4e]: https://foundryvtt.com/packages/dnd4e
+[D&D 5e]: https://foundryvtt.com/packages/dnd5e
 [Pathfinder 1e]: https://foundryvtt.com/packages/pf1
 [Pathfinder 2e]: https://foundryvtt.com/packages/pf1
 [Shadow of the Demon Lord]: https://foundryvtt.com/packages/demonlord
