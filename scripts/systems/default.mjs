@@ -10,7 +10,6 @@ export default class HPBarBase {
     this.w = token.w;
     this.h = Math.max((canvas.dimensions.size / 12), 8);
     const tokenHeight = (game.release?.generation >= 10) ? token.document.height : token.data.height;
-    console.log(tokenHeight);
     if ( tokenHeight >= 2 ) this.h *= 1.6;  // Enlarge the bar for large tokens
   }
 

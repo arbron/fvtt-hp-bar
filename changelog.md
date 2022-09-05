@@ -1,5 +1,8 @@
 # Changelog
 
+# [2.2.4]
+- Remove unwanted logging code
+
 # [2.2.3]
 - Fix issue with bar sizing [[#17]]
 
@@ -109,6 +112,7 @@
 [2.2.1]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.0...2.2.1
 [2.2.2]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.1...2.2.2
 [2.2.3]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.2...2.2.3
+[2.2.4]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.3...2.2.4
 
 [#11]: https://github.com/arbron/fvtt-hp-bar/issues/11
 [#16]: https://github.com/arbron/fvtt-hp-bar/issues/16
