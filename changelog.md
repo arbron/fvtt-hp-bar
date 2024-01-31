@@ -1,5 +1,8 @@
 # Changelog
 
+# [2.2.5]
+- Update compatible core version to 11 & DnD5e to 3.0
+
 # [2.2.4]
 - Remove unwanted logging code
 

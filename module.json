@@ -20,12 +20,12 @@
   "readme": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/readme.md",
   "changelog": "https://raw.githubusercontent.com/arbron/fvtt-hp-bar/main/changelog.md",
   "bugs": "https://github.com/arbron/fvtt-hp-bar/issues",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "10",
+  "compatibleCoreVersion": "11",
   "compatibility": {
     "minimum": "0.7.9",
-    "verified": "10"
+    "verified": "11"
   },
   "system": [
     "archmage",
@@ -72,7 +72,7 @@
         "id": "dnd5e",
         "manifest": "https://raw.githubusercontent.com/foundryvtt/dnd5e/master/system.json",
         "compatibility": {
-          "verified": "2.0"
+          "verified": "3.0"
         }
       },
       {
