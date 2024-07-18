@@ -1,20 +1,25 @@
 # Changelog
 
+# [2.2.6]
+ - Upgrade compatible core version to 12
+ - Upgrade compatible system versions
+ - Fix compatibility warnings in Foundry V12
+
 # [2.2.5]
-- Update compatible core version to 11 & DnD5e to 3.0
+ - Upgrade compatible core version to 11 & DnD5e to 3.0
 
 # [2.2.4]
-- Remove unwanted logging code
+ - Remove unwanted logging code
 
 # [2.2.3]
-- Fix issue with bar sizing [[#17]]
+ - Fix issue with bar sizing [[#17]]
 
 # [2.2.2]
-- Add support for [D&D 4e] [[#16]]
-- Add [Finnish] translation
+ - Add support for [D&D 4e] [[#16]]
+ - Add [Finnish] translation
 
 # [2.2.1]
-- Fix bug with case sensitivity in system IDs [[#18]]
+ - Fix bug with case sensitivity in system IDs [[#18]]
 
 # [2.2.0]
  - Adjust patching to use libWrapper if available

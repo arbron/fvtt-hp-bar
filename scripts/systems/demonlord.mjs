@@ -1,5 +1,6 @@
 import HPBarBase from './default.mjs';
 import { Color } from '../drawing.mjs';
+import * as utils from "../shared/utils.mjs";
 
 
 export default class DemonLordBar extends HPBarBase {
@@ -24,7 +25,7 @@ export default class DemonLordBar extends HPBarBase {
   }
 
   prepareData() {
-    const health = duplicate(this.system.characteristics.health);
+    const health = utils.duplicate(this.system.characteristics.health);
     const bonus = Number(this.system.characteristics.healthbonus ?? 0);
     const max = Number(health.max);
     const damage = Number(health.value);
@@ -42,8 +43,8 @@ export default class DemonLordBar extends HPBarBase {
     const effectiveMax = Math.max(0, hp.max + hp.bonus);
     const displayMax = hp.max + (hp.bonus > 0 ? hp.bonus : 0);
 
-    const valuePct = Math.clamped(hp.value, 0, effectiveMax) / displayMax;
-    const bonusPct = Math.clamped(displayMax - Math.abs(hp.bonus), 0, effectiveMax) / displayMax;
+    const valuePct = utils.clamp(hp.value, 0, effectiveMax) / displayMax;
+    const bonusPct = utils.clamp(displayMax - Math.abs(hp.bonus), 0, effectiveMax) / displayMax;
 
     const bonusBackgroundColor = (hp.bonus > 0) ? Color.maxPositive : Color.maxNegative;
     const borderColor = hp.injured ? Color.themed("injured") : Color.border;

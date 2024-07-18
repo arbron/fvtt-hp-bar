@@ -1,5 +1,6 @@
 import HPBarBase from './default.mjs';
 import { Color } from '../drawing.mjs';
+import * as utils from "../shared/utils.mjs";
 
 
 export default class Tormenta20Bar extends HPBarBase {
@@ -18,7 +19,7 @@ export default class Tormenta20Bar extends HPBarBase {
   }
 
   prepareData() {
-    const pv = duplicate(this.system.attributes.pv);
+    const pv = utils.duplicate(this.system.attributes.pv);
     return {
       max: Number(pv.max),
       temp: Number(pv.temp),

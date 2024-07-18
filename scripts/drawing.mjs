@@ -31,7 +31,7 @@ export class Draw {
     } catch (err) {}
     this.w = width;
     this.h = height;
-    this.b = Math.clamped(this.h / 8, 1, 2);
+    this.b = (game.release?.generation ?? 1) < 12 ? utils.clamp(this.h / 8, 1, 2) : Math.clamp(this.h / 8, 1, 2);
     this.i = this.b + 1;
 
     const theme = game.settings.get(constants.moduleName, "customizedTheme");

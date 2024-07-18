@@ -1,5 +1,6 @@
 import HPBarBase from './default.mjs';
 import { Color } from '../drawing.mjs';
+import * as utils from "../shared/utils.mjs";
 
 
 export default class PTUBar extends HPBarBase {
@@ -18,8 +19,8 @@ export default class PTUBar extends HPBarBase {
   }
 
   prepareData() {
-    const hp = duplicate(this.system.health);
-    const tmphp = duplicate(this.system.tempHp);
+    const hp = utils.duplicate(this.system.health);
+    const tmphp = utils.duplicate(this.system.tempHp);
     return {
       max: Number(hp.total),
       modified_max: Number(hp.max),
@@ -44,10 +45,10 @@ export default class PTUBar extends HPBarBase {
     // If temp exceeds max, bar is scaled to show total temp
     if (hp.temp > size) size = hp.temp;
 
-    const tempPct = Math.clamped(hp.temp, 0, size) / size;
-    const valuePct = Math.clamped(hp.value, 0, currentMax) / size;
-    const maxPct = Math.clamped(positiveMax - injury_loss, 0, positiveMax) / size;
-    const valueColorPct = Math.clamped(hp.value, 0, currentMax) / currentMax;
+    const tempPct = utils.clamp(hp.temp, 0, size) / size;
+    const valuePct = utils.clamp(hp.value, 0, currentMax) / size;
+    const maxPct = utils.clamp(positiveMax - injury_loss, 0, positiveMax) / size;
+    const valueColorPct = utils.clamp(hp.value, 0, currentMax) / currentMax;
 
     const maxBackgroundColor = (hp.tempmax > injury_loss) ? Color.maxPositive : Color.maxNegative;
 

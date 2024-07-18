@@ -1,5 +1,6 @@
 import HPBarBase from './default.mjs';
 import { Color } from '../drawing.mjs';
+import * as utils from "../shared/utils.mjs";
 
 
 export default class DnD5eBar extends HPBarBase {
@@ -12,7 +13,7 @@ export default class DnD5eBar extends HPBarBase {
   }
   
   prepareData() {
-    const hp = duplicate(this.system.attributes.hp);
+    const hp = utils.duplicate(this.system.attributes.hp);
     return {
       max: Number(hp.max),
       temp: Number(hp.temp),
@@ -34,10 +35,10 @@ export default class DnD5eBar extends HPBarBase {
     // If temp exceeds max, bar is scaled to show total temp
     if (hp.temp > size) size = hp.temp;
 
-    const tempPct = Math.clamped(hp.temp, 0, size) / size;
-    const valuePct = Math.clamped(hp.value, 0, currentMax) / size;
-    const maxPct = Math.clamped(positiveMax - Math.abs(hp.tempmax), 0, positiveMax) / size;
-    const valueColorPct = Math.clamped(hp.value, 0, currentMax) / size;
+    const tempPct = utils.clamp(hp.temp, 0, size) / size;
+    const valuePct = utils.clamp(hp.value, 0, currentMax) / size;
+    const maxPct = utils.clamp(positiveMax - Math.abs(hp.tempmax), 0, positiveMax) / size;
+    const valueColorPct = utils.clamp(hp.value, 0, currentMax) / size;
 
     const maxBackgroundColor = (hp.tempmax > 0) ? Color.maxPositive : Color.maxNegative;
 

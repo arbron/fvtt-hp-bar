@@ -1,5 +1,6 @@
 import constants from './shared/constants.mjs';
 import { error } from './shared/messages.mjs';
+import * as utils from "./shared/utils.mjs";
 
 
 /**
@@ -109,6 +110,7 @@ class ThemeConfig extends FormApplication {
 
   /** @inheritdoc */
   static get defaultOptions() {
+    const mergeObject = (game.release?.generation ?? 1) < 10 ? mergeObject : foundry.utils.mergeObject;
     return mergeObject(super.defaultOptions, {
       title: game.i18n.localize("HPBAR.ThemeConfigTitle"),
       id: "hpbar-theme-config",
@@ -172,7 +174,7 @@ class ThemeConfig extends FormApplication {
           value = parseInt(formData[key].replace("#", "").trim(), 16);
           break;
         case "range":
-          value = Math.clamped(Number(value), option.min, option.max);
+          value = utils.clamp(Number(value), option.min, option.max);
           break;
         default:
           value = null;

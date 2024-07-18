@@ -1,4 +1,5 @@
 import { Color, Draw } from '../drawing.mjs';
+import * as utils from "../shared/utils.mjs";
 
 
 export default class HPBarBase {
@@ -107,11 +108,11 @@ export default class HPBarBase {
    * @returns {object}
    */
   prepareData() {
-    let _hp = duplicate(this.system.attributes.hp);
+    let _hp = utils.duplicate(this.system.attributes.hp);
     return {
       max: Number(_hp.max),
-      temp: Number(getProperty(_hp, "temp") || 0),
-      nonlethal: Number(getProperty(_hp, "nonlethal") || 0),
+      temp: Number(utils.getProperty(_hp, "temp") || 0),
+      nonlethal: Number(utils.getProperty(_hp, "nonlethal") || 0),
       value: Number(_hp.value),
     };
   }
@@ -121,9 +122,9 @@ export default class HPBarBase {
 
     const size = Math.max(hp.max, hp.temp);
 
-    const tempPct = Math.clamped(hp.temp, 0, size) / size;
-    const valuePct = Math.clamped(hp.value, 0, hp.max) / size;
-    const valueColorPct = Math.clamped(hp.value, 0, hp.max) / hp.max;
+    const tempPct = utils.clamp(hp.temp, 0, size) / size;
+    const valuePct = utils.clamp(hp.value, 0, hp.max) / size;
+    const valueColorPct = utils.clamp(hp.value, 0, hp.max) / hp.max;
 
     draw.background()
         .current(valuePct, Color.forValue(valueColorPct))
@@ -131,7 +132,7 @@ export default class HPBarBase {
         .mainBorder();
 
     if (hp.nonlethal > 0) {
-      const nonlethalPct = Math.clamped(hp.nonlethal, 0, size) / size;
+      const nonlethalPct = utils.clamp(hp.nonlethal, 0, size) / size;
       const nonlethalColor = (nonlethalPct < valuePct) ? Color.nonlethal : Color.staggered;
       draw.nonlethal(nonlethalPct, nonlethalColor);
     }
@@ -141,6 +142,20 @@ export default class HPBarBase {
     return (game.release?.generation >= 10) ? this.token.actor.system : this.token.actor.data.data;
   }
 
+
+  /* ---------------------------------------- */
+  /*                  Helpers                 */
+  /* ---------------------------------------- */
+
+  clamp(...args) {
+    if ( (game.release?.generation ?? 1) < 12 ) return Math.clamped(...args);
+    return Math.clamp(...args);
+  }
+
+  duplicate(...args) {
+    if ( (game.release?.generation ?? 1) < 10 ) return duplicate(...args);
+    return foundry.utils.deepClone(...args);
+  }
 
   /* ---------------------------------------- */
   /*              Private Methods             */
