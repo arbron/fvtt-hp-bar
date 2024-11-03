@@ -1,5 +1,8 @@
 # Changelog
 
+# [2.2.7]
+ - Fix import bug affecting pre-V12 versions [[#28]] (thanks [Skepickle](https://github.com/skepickle))
+
 # [2.2.6]
  - Upgrade compatible core version to 12
  - Upgrade compatible system versions
@@ -121,11 +124,15 @@
 [2.2.2]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.1...2.2.2
 [2.2.3]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.2...2.2.3
 [2.2.4]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.3...2.2.4
+[2.2.5]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.4...2.2.5
+[2.2.6]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.5...2.2.6
+[2.2.7]: https://github.com/arbron/fvtt-hp-bar/compare/2.2.6...2.2.7
 
 [#11]: https://github.com/arbron/fvtt-hp-bar/issues/11
 [#16]: https://github.com/arbron/fvtt-hp-bar/issues/16
 [#17]: https://github.com/arbron/fvtt-hp-bar/issues/17
 [#18]: https://github.com/arbron/fvtt-hp-bar/issues/18
+[#28]: https://github.com/arbron/fvtt-hp-bar/issues/28
 
 [D&D 3.5e]: https://foundryvtt.com/packages/D35E
 [D&D 4e]: https://foundryvtt.com/packages/dnd4e
